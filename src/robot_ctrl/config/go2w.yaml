@@ -1,0 +1,19 @@
+robot_ctrl:
+  ros__parameters:
+    control_period: 0.005  # 控制器 200 Hz；不是策略推理周期。
+    state_timeout: 0.1    # 底层有效反馈断流阈值，s。
+    policy_timeout: 0.2   # RL 电机指令断流阈值，s。
+    stand_duration: 1.5
+    # 这里是独立控制器的 flat 默认值；统一 launch 的 profile 会覆盖站姿和 PD。
+    # Stand/等首条 RL 指令使用这些 PD，正式 RL 则使用 RobotCommand 中的 PD。
+    leg_kp: 20.0
+    leg_kd: 0.5
+    wheel_kd: 0.3
+    default_position: [0.1, 0.8, -1.5, 0.0, -0.1, 0.8, -1.5, 0.0,
+                       0.1, 1.0, -1.5, 0.0, -0.1, 1.0, -1.5, 0.0]
+    # 内部索引 -> LowCmd/LowState 槽位。
+    motor_mapping: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    motor_command_topic: /lowcmd
+    motor_state_topic: /lowstate
+    depth_topic: /camera/depth/image_raw
+    camera_info_topic: /camera/depth/camera_info

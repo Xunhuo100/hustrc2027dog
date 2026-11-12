@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""从本地 HIMLoco checkpoint 导出 actor + estimator，无需启动 Isaac Gym。"""
+import argparse
+import copy
+import os
+import sys
+import torch
+import torch.nn.functional as F
+
+
+class ExportedHim(torch.nn.Module):
+    # 部署保留 actor + estimator.encoder；不携带训练时的 critic 和地形特权观测。
+    # 所以 parkour 训练中出现高度测量，不代表部署需要深度相机或高度真值。
+    def __init__(self, policy):
+        super().__init__()
+        self.actor = copy.deepcopy(policy.actor)
+        self.estimator = copy.deepcopy(policy.estimator.encoder)
+
+    def forward(self, history):
+        # encoder 从 6 帧历史估计速度/潜变量，actor 再读取当前 57 维观测输出 16 维动作。
+        parts = self.estimator(history)
+        velocity = parts[:, :3]
+        latent = F.normalize(parts[:, 3:], dim=-1, p=2.0)
+        return self.actor(torch.cat((history[:, :57], velocity, latent), dim=1))
+
+
+def hidden_dimensions(weights, prefix):
+    layers = [key for key in weights if key.startswith(prefix + ".") and key.endswith(".weight")]
+    layers.sort(key=lambda key: int(key.split(".")[1]))
+    return [weights[key].shape[0] for key in layers[:-1]]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--himloco-root", default=os.path.expanduser("~/_PaperWorks/HIMLoco"))
+    parser.add_argument("--checkpoint", required=True)
+    parser.add_argument("--output", required=True)
+    parser.add_argument("--activation", default="elu")
+    args = parser.parse_args()
+    sys.path.insert(0, os.path.join(args.himloco_root, "rsl_rl"))
+    from rsl_rl.modules import HIMActorCritic
+    checkpoint = torch.load(args.checkpoint, map_location="cpu")
+    weights = checkpoint["model_state_dict"]
+    if weights["estimator.encoder.0.weight"].shape[1] != 342:
+        raise ValueError("Checkpoint must use Go2W's 57 x 6 observations")
+    actor = HIMActorCritic(342, weights["critic.0.weight"].shape[1], 57, 16,
+                          actor_hidden_dims=hidden_dimensions(weights, "actor"),
+                          critic_hidden_dims=hidden_dimensions(weights, "critic"),
+                          activation=args.activation)
+    actor.load_state_dict(weights, strict=True)
+    actor.eval()
+    exported = torch.jit.script(ExportedHim(actor).eval())
+    # 与训练端 act_inference 数值对照；能加载文件不代表导出的推理流程正确。
+    history = torch.randn(8, 342)
+    with torch.no_grad():
+        expected = actor.act_inference(history)
+        actual = exported(history)
+    if actual.shape != (8, 16) or not torch.allclose(expected, actual, atol=1e-6):
+        raise RuntimeError("Exported actor/estimator does not match training inference")
+    os.makedirs(os.path.dirname(os.path.abspath(args.output)), exist_ok=True)
+    exported.save(args.output)
+    print("Exported and verified:", args.output)
+
+
+if __name__ == "__main__":
+    main()

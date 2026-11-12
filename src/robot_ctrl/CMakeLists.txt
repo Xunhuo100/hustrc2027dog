@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.8)
+project(robot_ctrl)
+set(CMAKE_CXX_STANDARD 14)
+add_compile_options(-Wall -Wextra -Wpedantic)
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(unitree_go REQUIRED)
+find_package(wheel_leg_interfaces REQUIRED)
+# 明确列出源文件，不编译 legacy 中的 12 自由度算法。
+add_executable(robot_ctrl src/main.cpp src/control/RobotController.cpp
+  src/FSM/State_RL.cpp src/interface/RobotIO.cpp src/interface/motor_crc.cpp)
+target_include_directories(robot_ctrl PRIVATE include)
+ament_target_dependencies(robot_ctrl rclcpp std_msgs sensor_msgs unitree_go wheel_leg_interfaces)
+install(TARGETS robot_ctrl DESTINATION lib/${PROJECT_NAME})
+install(DIRECTORY config launch DESTINATION share/${PROJECT_NAME})
+ament_package()

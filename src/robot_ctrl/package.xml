@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot_ctrl</name>
+  <version>0.1.0</version>
+  <description>16 DOF wheel leg controller with Passive, Stand and RL states.</description>
+  <maintainer email="wangmx@todo.todo">wangmx</maintainer>
+  <license>BSD-3-Clause</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>unitree_go</depend>
+  <depend>wheel_leg_interfaces</depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

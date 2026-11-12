@@ -1,0 +1,3 @@
+#!/usr/bin/env python3
+from himloco_sim2sim.mujoco_node import main
+main()

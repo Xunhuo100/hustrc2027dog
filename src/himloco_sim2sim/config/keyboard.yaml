@@ -1,0 +1,8 @@
+keyboard_control:
+  ros__parameters:
+    enable_keyboard: false
+    velocity_topic: /cmd_vel
+    linear_speed: 0.3       # 机体坐标系平移速度，m/s。
+    angular_speed: 0.6      # 绕机体 z 轴转向速度，rad/s。
+    key_timeout: 0.5        # 对应方向无按键重复输入时归零，s。
+    publish_period: 0.05    # /cmd_vel 输出周期，s。
