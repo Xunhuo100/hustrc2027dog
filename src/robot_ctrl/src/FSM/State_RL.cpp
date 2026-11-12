@@ -3,12 +3,45 @@
 #include <cmath>
 namespace wheel_leg
 {
-void State_RL::enter(uint32_t session)
+State_RL::State_RL(const ControllerConfig &config) : config_(config) {}
+void State_RL::enter(const wheel_leg_interfaces::msg::RobotState &, uint32_t session)
 {
     // 清除上一会话的可用标记，禁止切回 RL 时继续执行旧动作。
     session_ = session;
     received_ = false;
+    command_ = wheel_leg_interfaces::msg::RobotCommand();
     command_time_ = std::chrono::steady_clock::now();
+}
+void State_RL::run(wheel_leg_interfaces::msg::RobotCommand &command)
+{
+    if (received_)
+    {
+        // 保持策略消息中的全部目标和 PD，不用控制器的 Stand PD 覆盖。
+        command = command_;
+        return;
+    }
+    // 进入 RL 前已经完成 Stand；等待首条指令期间保持最终站姿，最多 policy_timeout。
+    for (int i = 0; i < MOTOR_COUNT; i++)
+    {
+        auto &motor = command.motor_cmd[i];
+        motor.mode = 1;
+        motor.kd = isWheel(i) ? config_.wheel_kd : config_.leg_kd;
+        if (!isWheel(i))
+        {
+            motor.kp = config_.leg_kp;
+            motor.q = config_.default_position[i];
+        }
+    }
+}
+void State_RL::exit()
+{
+    received_ = false;
+    command_ = wheel_leg_interfaces::msg::RobotCommand();
+}
+ControlMode State_RL::checkChange(ControlMode requested) const
+{
+    if (requested == PASSIVE || requested == STAND) return requested;
+    return RL;
 }
 bool State_RL::receive(const wheel_leg_interfaces::msg::RobotCommand &command)
 {
@@ -30,9 +63,9 @@ bool State_RL::receive(const wheel_leg_interfaces::msg::RobotCommand &command)
     command_time_ = std::chrono::steady_clock::now();
     return true;
 }
-bool State_RL::timedOut(double timeout) const
+bool State_RL::timedOut() const
 {
     // 从最近一次成功接收计时；刚进入 RL 尚无指令时从 enter() 计时。
-    return std::chrono::duration<double>(std::chrono::steady_clock::now() - command_time_).count() > timeout;
+    return std::chrono::duration<double>(std::chrono::steady_clock::now() - command_time_).count() > config_.policy_timeout;
 }
 }
