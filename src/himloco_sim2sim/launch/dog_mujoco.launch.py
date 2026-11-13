@@ -20,6 +20,8 @@ def generate_launch_description():
         "velocity_topic": "/cmd_vel",
         "start_simulator": "true",
         "viewer": "false",
+        "follow_camera": "true",
+        "camera_distance": "3.0",
         "enable_depth": "false",
         "autostart": "true",
         "enable_keyboard": "false",

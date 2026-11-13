@@ -26,9 +26,21 @@ class Go2WMujoco(Node):
         self.command, self.command_time = None, 0.0
         self.viewer, self.renderer = None, None
         self.viewer_step = 0
+        self.follow_camera = self.declare_parameter("follow_camera", True).value
+        camera_distance = self.declare_parameter("camera_distance", 3.0).value
+        if not np.isfinite(camera_distance) or camera_distance <= 0.0:
+            raise ValueError("camera_distance must be positive and finite")
         if self.declare_parameter("viewer", False).value:
             from mujoco import viewer
             self.viewer = viewer.launch_passive(self.robot.model, self.robot.data)
+            if self.follow_camera:
+                # 观察窗口跟随 base；此视角与发布深度图的机载相机独立。
+                with self.viewer.lock():
+                    self.viewer.cam.type = mujoco.mjtCamera.mjCAMERA_FREE
+                    self.viewer.cam.lookat[:] = self.robot.data.xpos[self.robot.base_id]
+                    self.viewer.cam.distance = camera_distance
+                    self.viewer.cam.azimuth = 135.0
+                    self.viewer.cam.elevation = -20.0
         command_topic = self.declare_parameter("motor_command_topic", "/lowcmd").value
         state_topic = self.declare_parameter("motor_state_topic", "/lowstate").value
         self.depth_topic = self.declare_parameter("depth_topic", "/camera/depth/image_raw").value
@@ -77,6 +89,10 @@ class Go2WMujoco(Node):
         self.viewer_step += 1
         if self.viewer is not None and self.viewer_step % 6 == 0:
             if self.viewer.is_running():
+                if self.follow_camera:
+                    # 仅更新注视点；保留鼠标调整的角度和缩放，不跟随机身翻滚。
+                    with self.viewer.lock():
+                        self.viewer.cam.lookat[:] = self.robot.data.xpos[self.robot.base_id]
                 self.viewer.sync()
             else:
                 self.timer.cancel()

@@ -32,6 +32,8 @@ def generate_launch_description():
         # false 只关闭内置仿真桥；此 launch 仍会启动 HIM 策略，接外部策略应分开启动节点。
         DeclareLaunchArgument("start_simulator", default_value="true"),
         DeclareLaunchArgument("viewer", default_value="false"),
+        DeclareLaunchArgument("follow_camera", default_value="true"),
+        DeclareLaunchArgument("camera_distance", default_value="3.0"),
         DeclareLaunchArgument("autostart", default_value="true"),
         DeclareLaunchArgument("enable_keyboard", default_value="false"),
         DeclareLaunchArgument("keyboard_linear_speed", default_value="0.3"),
@@ -47,7 +49,11 @@ def generate_launch_description():
              condition=IfCondition(LaunchConfiguration("start_simulator")),
              parameters=[profile_file, io_parameters, {"model_xml": LaunchConfiguration("model_xml"),
                           "enable_depth": ParameterValue(LaunchConfiguration("enable_depth"), value_type=bool),
-                          "viewer": ParameterValue(LaunchConfiguration("viewer"), value_type=bool)}]),
+                          "viewer": ParameterValue(LaunchConfiguration("viewer"), value_type=bool),
+                          "follow_camera": ParameterValue(
+                              LaunchConfiguration("follow_camera"), value_type=bool),
+                          "camera_distance": ParameterValue(
+                              LaunchConfiguration("camera_distance"), value_type=float)}]),
         Node(package="himloco_sim2sim", executable="himloco_policy", output="screen",
              parameters=[os.path.join(package, "config", "himloco.yaml"), profile_file,
                          {"policy_profile": profile, "model_path": LaunchConfiguration("model_path"),

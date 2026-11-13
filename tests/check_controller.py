@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""可重复检查：非恒等电机映射、RL 会话隔离、坏数据和输入超时。"""
+"""检查显式 FSM 生命周期、站立插值、映射、会话隔离、坏数据和超时。"""
 import os
 import signal
 import subprocess
@@ -63,7 +63,7 @@ class FakeRobot(Node):
     def enter_rl(self):
         self.mode("stand")
         self.pump(1, lambda: self.state.control_mode == RobotState.STAND)
-        self.pump(0.08)
+        self.pump(0.3)
         self.mode("rl")
         self.pump(1, lambda: self.state.control_mode == RobotState.RL)
 
@@ -89,7 +89,7 @@ def main():
     log = open("/tmp/hustrc2027dog_controller_check.log", "w")
     process = subprocess.Popen([
         str(ROOT / "install/robot_ctrl/lib/robot_ctrl/robot_ctrl"), "--ros-args",
-        "-p", "stand_duration:=0.05", "-p", "policy_timeout:=0.15",
+        "-p", "stand_duration:=0.25", "-p", "policy_timeout:=0.15",
         "-p", "motor_mapping:=[15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0]"],
         stdout=log, stderr=subprocess.STDOUT)
     try:
@@ -99,15 +99,73 @@ def main():
         assert robot.state.imu.orientation.w == 1
         assert robot.state.imu.angular_velocity.y == 2
         print("PASS all 16 feedback slots and IMU conversion", flush=True)
+        assert robot.state.control_mode == RobotState.PASSIVE
+        assert robot.state.control_session == 0
+        for i in range(16):
+            motor = robot.command.motor_cmd[15 - i]
+            assert motor.mode == 1 and motor.kp == 0 and motor.dq == 0 and motor.tau == 0
+            assert abs(motor.kd - (0.3 if i % 4 == 3 else 1.0)) < 1e-6
+        print("PASS Passive generates damping commands", flush=True)
         robot.mode("rl")
         robot.pump(0.05)
         assert robot.state.control_mode == RobotState.PASSIVE
-        robot.enter_rl()
+        assert robot.state.control_session == 0
+        robot.mode("stand")
+        robot.pump(1, lambda: robot.state.control_mode == RobotState.STAND and
+                   0.14 < robot.command.motor_cmd[14].q < 0.8)
+        stand_session = robot.state.control_session
+        assert stand_session == 1
+        assert robot.command.motor_cmd[14].kp == 20.0
+        assert robot.command.motor_cmd[14].kd == 0.5
+        for i in [3, 7, 11, 15]:
+            motor = robot.command.motor_cmd[15 - i]
+            assert motor.q == 0 and motor.kp == 0 and motor.dq == 0
+        robot.mode("rl")
+        robot.pump(0.03)
+        assert robot.state.control_mode == RobotState.STAND
+        assert robot.state.control_session == stand_session
+        robot.mode("stand")
+        robot.pump(0.04)
+        # 重复请求不重启 Stand 插值，且不会产生新会话。
+        assert robot.state.control_session == stand_session
+        robot.pump(0.3)
+        for i in range(16):
+            assert abs(robot.command.motor_cmd[15 - i].q - DEFAULT_Q[i]) < 1e-6
+        robot.mode("rl")
+        robot.pump(1, lambda: robot.state.control_mode == RobotState.RL)
+        assert robot.state.control_session == stand_session + 1
+        robot.pump(0.02)
+        assert all(robot.command.motor_cmd[15 - i].dq == 0 for i in [3, 7, 11, 15])
+        assert abs(robot.command.motor_cmd[14].q - DEFAULT_Q[1]) < 1e-6
+        print("PASS Stand interpolation, RL entry gate, sessions and initial stand hold", flush=True)
         robot.pump(1, lambda: robot.command.motor_cmd[0].dq == 4.0, lambda m: None)
         assert robot.command.motor_cmd[12].dq == 1.0
         assert all(robot.command.motor_cmd[i].mode == 0 for i in range(16, 20))
         assert robot.command.crc != 0
         print("PASS 16th motor output, reverse mapping, reserved slots and CRC", flush=True)
+        # RL 的 PD 直接来自策略，不能被 Stand 参数覆盖。
+        def different_pd(message):
+            message.motor_cmd[1].kp = 31.0
+            message.motor_cmd[1].kd = 0.7
+            message.motor_cmd[1].tau = 0.2
+        robot.pump(1, lambda: robot.command.motor_cmd[14].kp == 31.0, different_pd)
+        assert abs(robot.command.motor_cmd[14].kd - 0.7) < 1e-6
+        assert abs(robot.command.motor_cmd[14].tau - 0.2) < 1e-6
+        previous_session = robot.state.control_session
+        robot.mode("stand")
+        robot.pump(1, lambda: robot.state.control_mode == RobotState.STAND and
+                   robot.command.motor_cmd[14].kp == 20.0 and
+                   all(robot.command.motor_cmd[15 - i].dq == 0 for i in [3, 7, 11, 15]))
+        assert robot.state.control_session == previous_session + 1
+        assert robot.command.motor_cmd[14].tau == 0
+        robot.pump(0.3)
+        robot.mode("rl")
+        robot.pump(1, lambda: robot.state.control_mode == RobotState.RL)
+        robot.pump(0.02)
+        assert robot.state.control_session == previous_session + 2
+        assert robot.command.motor_cmd[14].kp == 20.0
+        assert all(robot.command.motor_cmd[15 - i].dq == 0 for i in [3, 7, 11, 15])
+        print("PASS policy PD preserved, RL exit clears targets and re-entry cannot replay actions", flush=True)
         def bad_value(message):
             message.motor_cmd[15].dq = float("nan")
         robot.pump(1, lambda: robot.state.control_mode == RobotState.PASSIVE, bad_value)
@@ -125,6 +183,17 @@ def main():
         robot.enter_rl()
         robot.pump(1, lambda: robot.state.control_mode == RobotState.PASSIVE)
         print("PASS missing first policy command -> Passive", flush=True)
+        robot.enter_rl()
+        robot.pump(1, lambda: robot.command.motor_cmd[0].dq == 4.0, lambda m: None)
+        robot.pump(1, lambda: robot.state.control_mode == RobotState.PASSIVE and
+                   robot.command.motor_cmd[0].dq == 0 and robot.command.motor_cmd[14].kp == 0)
+        print("PASS active policy timeout clears motor targets", flush=True)
+        robot.enter_rl()
+        # roll=90°，测试全局保护能在状态执行前抢占 RL 输出。
+        robot.feedback_msg.imu_state.quaternion = [0.70710678, 0.70710678, 0.0, 0.0]
+        robot.pump(1, lambda: robot.state.control_mode == RobotState.PASSIVE and
+                   all(m.kp == 0 and m.dq == 0 and m.tau == 0 for m in robot.command.motor_cmd))
+        print("PASS tilt protection preempts RL and outputs Passive damping", flush=True)
         robot.feedback = False
         robot.pump(1, lambda: all(m.mode == 0 for m in robot.command.motor_cmd))
         print("PASS feedback timeout disables all motor slots", flush=True)

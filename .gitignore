@@ -1,0 +1,9 @@
+build/
+install/
+log/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+src/__pycache__/
+src/tests
