@@ -4,11 +4,15 @@
 ## 结构
 修改自unitree_guide的FSM结构，将其底层机制从ROS1+GAZEBO修改为ROS2，与控制逻辑和仿真解耦
 
-底层控制在'src/robot_ctrl/src/interface/RobotIO.cpp',向'motor_command_topic'发布消息获取指令，向'motor_state_topic'读取电机反馈数据和IMU数据等，深度相机暂时没加
+底层控制在'src/robot_ctrl/src/interface/RobotIO.cpp',向'motor_command_topic'发布电机控制指令(sim，要上实机在这里加电机直接控制那一套)，向'motor_state_topic'读取电机反馈数据和IMU数据等，深度相机暂时没用
 
-主要的代码流程是：main启动，进入passive状态，
+主要的控制调度写在robot_ctrl
 
-## 当前内容
+主要的代码流程是：控制器启动后进入 Passive。一键启动时，策略节点在收到有效机器人反馈后，通过 /robot/mode 请求进入 Stand，等待站立阶段后再请求进入 RL；控制器负责检查切换条件和执行保护逻辑
+
+控制节点通过 RobotIO 发布机器人状态，策略节点接收状态和期望速度并输出电机目标；进入 RL 后，控制器使用这些策略指令(策略部署的包：himloco_sim2sim，虽然叫sim2sim其实和部署场景无关，其他策略要实现类似的或者在这个基础上改)
+
+当前使用本工作空间的 ROS2 MuJoCo 桥进行仿真，电机通信沿用 unitree_go 的消息格式。默认从外部 dogMujoco2027 目录加载 MJCF 和模型资源(机器人和场地)
 
 
 ## 使用
@@ -16,19 +20,10 @@ MUJOCO通讯是来自宇树的接口的，需要有另外的mujoco工作空间�
 
 目前是用键盘控制，用键盘输出期望的速度，狗子跟踪之
 
+直接用脚本启动
 
+`start_sim.sh` 默认开启观察视角跟随，启用键盘控制，注视点跟随机器人机身；可用鼠标旋转、缩放，视角不随机身翻滚。
 
 ## 后续
-把自动决策、雷达定位、视觉等工作一点一点移植进来，不急但尽可能快
+把大狗移植进来，把自动决策、雷达定位、视觉等工作一点一点移植进来，不急但尽可能快
 
-## 仿真相机跟随
-
-`start_sim.sh` 默认开启观察视角跟随，注视点跟随机器人机身，初始观察距离为 3 m；可用鼠标旋转、缩放，视角不随机身翻滚。该功能只控制 MuJoCo 观察窗口。
-
-```bash
-./start_sim.sh                               # 默认跟随狗子
-FOLLOW_CAMERA=false ./start_sim.sh           # 关闭跟随，自由观察场地
-CAMERA_DISTANCE=4.0 ./start_sim.sh            # 初始观察距离改为 4 m
-```
-
-修改源码后可执行 `BUILD=true ./start_sim.sh` 重新编译并启动。直接使用 ROS2 launch 时，对应参数为 `viewer:=true follow_camera:=true camera_distance:=3.0`，`dog_mujoco.launch.py` 和 `sim2sim.launch.py` 均支持。
