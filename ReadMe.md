@@ -4,7 +4,7 @@
 ## 结构
 修改自unitree_guide的FSM结构，将其底层机制从ROS1+GAZEBO修改为ROS2，与控制逻辑和仿真解耦
 
-底层控制在'src/robot_ctrl/src/interface/RobotIO.cpp',向'motor_command_topic'发布电机控制指令(sim，要上实机在这里加电机直接控制那一套)，向'motor_state_topic'读取电机反馈数据和IMU数据等，深度相机暂时没用
+底层控制在'src/robot_ctrl/src/interface/RobotIO.cpp',向'motor_command_topic'发布电机控制指令(sim，要上实机在这里加电机直接控制那一套，或者另外写一个电机工作包)，向'motor_state_topic'读取电机反馈数据和IMU数据等，深度相机暂时没用
 
 主要的控制调度写在robot_ctrl
 
@@ -16,8 +16,6 @@
 
 
 ## 使用
-MUJOCO通讯是来自宇树的接口的，需要有另外的mujoco工作空间（如果可以简化最好）
-
 目前是用键盘控制，用键盘输出期望的速度，狗子跟踪之
 
 直接用脚本启动
@@ -27,3 +25,5 @@ MUJOCO通讯是来自宇树的接口的，需要有另外的mujoco工作空间�
 ## 后续
 把大狗移植进来，把自动决策、雷达定位、视觉等工作一点一点移植进来，不急但尽可能快
 
+## 注
+成员尽量用git管理代码，暂时性的工作可以自己建一个分支在里面改，写差不多了说一声，做merge到主分支:)
