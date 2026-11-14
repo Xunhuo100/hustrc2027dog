@@ -1,0 +1,35 @@
+<mujoco model="go2w scene">
+  <!-- 带简易障碍的场景：轮足先测"低台阶 + 缓坡"这类能滚上去的东西。
+       台阶高度 2/4/6/8 cm（轮半径 8.6 cm），坡面约 10°。 -->
+  <include file="go2w.xml"/>
+
+  <statistic center="0 0 0.1" extent="0.8"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="-130" elevation="-20"/>
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
+      markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
+
+    <!-- 低台阶序列（沿 +x 逐级升高）：size 的 z 分量是半高，所以 0.01 = 2 cm 高 -->
+    <geom name="step_02" pos="1.20 0 0.01" type="box" size="0.10 2.0 0.01"/>
+    <geom name="step_04" pos="1.50 0 0.02" type="box" size="0.10 2.0 0.02"/>
+    <geom name="step_06" pos="1.80 0 0.03" type="box" size="0.10 2.0 0.03"/>
+    <geom name="step_08" pos="2.10 0 0.04" type="box" size="0.10 2.0 0.04"/>
+
+    <!-- 缓坡：10° 上坡（quat 绕 y 轴 -10°） -->
+    <geom name="ramp" pos="3.00 0 0.15" type="box" size="0.60 2.0 0.02"
+          quat="0.996195 0 -0.0871557 0"/>
+  </worldbody>
+</mujoco>

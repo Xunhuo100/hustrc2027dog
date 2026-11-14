@@ -1,0 +1,647 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="go2w straight field course">
+  <include file="go2w.xml" />
+  <statistic center="0 0 0.1" extent="0.8" />
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0" />
+    <rgba haze="0.15 0.25 0.35 1" />
+    <global azimuth="-130" elevation="-20" offwidth="1600" offheight="900" />
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072" />
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300" />
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2" />
+    <mesh name="field_high_wall" file="fields/high_wall.stl" />
+    <mesh name="field_high_wall_collision_000" file="fields/field_high_wall_collision_000.obj" />
+    <mesh name="field_single_log_bridge" file="fields/single_log_bridge.stl" />
+    <mesh name="field_single_log_bridge_collision_000" file="fields/field_single_log_bridge_collision_000.obj" />
+    <mesh name="field_tire_array" file="fields/tire_array.stl" />
+    <mesh name="field_tire_array_collision_000" file="fields/field_tire_array_collision_000.obj" />
+    <mesh name="field_tire_array_collision_001" file="fields/field_tire_array_collision_001.obj" />
+    <mesh name="field_tire_array_collision_002" file="fields/field_tire_array_collision_002.obj" />
+    <mesh name="field_tire_array_collision_003" file="fields/field_tire_array_collision_003.obj" />
+    <mesh name="field_tire_array_collision_004" file="fields/field_tire_array_collision_004.obj" />
+    <mesh name="field_tire_array_collision_005" file="fields/field_tire_array_collision_005.obj" />
+    <mesh name="field_tire_array_collision_006" file="fields/field_tire_array_collision_006.obj" />
+    <mesh name="field_tire_array_collision_007" file="fields/field_tire_array_collision_007.obj" />
+    <mesh name="field_tire_array_collision_008" file="fields/field_tire_array_collision_008.obj" />
+    <mesh name="field_tire_array_collision_009" file="fields/field_tire_array_collision_009.obj" />
+    <mesh name="field_tire_array_collision_010" file="fields/field_tire_array_collision_010.obj" />
+    <mesh name="field_tire_array_collision_011" file="fields/field_tire_array_collision_011.obj" />
+    <mesh name="field_tire_array_collision_012" file="fields/field_tire_array_collision_012.obj" />
+    <mesh name="field_tire_array_collision_013" file="fields/field_tire_array_collision_013.obj" />
+    <mesh name="field_tire_array_collision_014" file="fields/field_tire_array_collision_014.obj" />
+    <mesh name="field_tire_array_collision_015" file="fields/field_tire_array_collision_015.obj" />
+    <mesh name="field_tire_array_collision_016" file="fields/field_tire_array_collision_016.obj" />
+    <mesh name="field_tire_array_collision_017" file="fields/field_tire_array_collision_017.obj" />
+    <mesh name="field_tire_array_collision_018" file="fields/field_tire_array_collision_018.obj" />
+    <mesh name="field_tire_array_collision_019" file="fields/field_tire_array_collision_019.obj" />
+    <mesh name="field_tire_array_collision_020" file="fields/field_tire_array_collision_020.obj" />
+    <mesh name="field_tire_array_collision_021" file="fields/field_tire_array_collision_021.obj" />
+    <mesh name="field_tire_array_collision_022" file="fields/field_tire_array_collision_022.obj" />
+    <mesh name="field_tire_array_collision_023" file="fields/field_tire_array_collision_023.obj" />
+    <mesh name="field_tire_array_collision_024" file="fields/field_tire_array_collision_024.obj" />
+    <mesh name="field_tire_array_collision_025" file="fields/field_tire_array_collision_025.obj" />
+    <mesh name="field_tire_array_collision_026" file="fields/field_tire_array_collision_026.obj" />
+    <mesh name="field_tire_array_collision_027" file="fields/field_tire_array_collision_027.obj" />
+    <mesh name="field_tire_array_collision_028" file="fields/field_tire_array_collision_028.obj" />
+    <mesh name="field_tire_array_collision_029" file="fields/field_tire_array_collision_029.obj" />
+    <mesh name="field_tire_array_collision_030" file="fields/field_tire_array_collision_030.obj" />
+    <mesh name="field_tire_array_collision_031" file="fields/field_tire_array_collision_031.obj" />
+    <mesh name="field_tire_array_collision_032" file="fields/field_tire_array_collision_032.obj" />
+    <mesh name="field_tire_array_collision_033" file="fields/field_tire_array_collision_033.obj" />
+    <mesh name="field_tire_array_collision_034" file="fields/field_tire_array_collision_034.obj" />
+    <mesh name="field_tire_array_collision_035" file="fields/field_tire_array_collision_035.obj" />
+    <mesh name="field_tire_array_collision_036" file="fields/field_tire_array_collision_036.obj" />
+    <mesh name="field_tire_array_collision_037" file="fields/field_tire_array_collision_037.obj" />
+    <mesh name="field_tire_array_collision_038" file="fields/field_tire_array_collision_038.obj" />
+    <mesh name="field_tire_array_collision_039" file="fields/field_tire_array_collision_039.obj" />
+    <mesh name="field_tire_array_collision_040" file="fields/field_tire_array_collision_040.obj" />
+    <mesh name="field_tire_array_collision_041" file="fields/field_tire_array_collision_041.obj" />
+    <mesh name="field_tire_array_collision_042" file="fields/field_tire_array_collision_042.obj" />
+    <mesh name="field_tire_array_collision_043" file="fields/field_tire_array_collision_043.obj" />
+    <mesh name="field_tire_array_collision_044" file="fields/field_tire_array_collision_044.obj" />
+    <mesh name="field_tire_array_collision_045" file="fields/field_tire_array_collision_045.obj" />
+    <mesh name="field_tire_array_collision_046" file="fields/field_tire_array_collision_046.obj" />
+    <mesh name="field_tire_array_collision_047" file="fields/field_tire_array_collision_047.obj" />
+    <mesh name="field_tire_array_collision_048" file="fields/field_tire_array_collision_048.obj" />
+    <mesh name="field_tire_array_collision_049" file="fields/field_tire_array_collision_049.obj" />
+    <mesh name="field_tire_array_collision_050" file="fields/field_tire_array_collision_050.obj" />
+    <mesh name="field_tire_array_collision_051" file="fields/field_tire_array_collision_051.obj" />
+    <mesh name="field_tire_array_collision_052" file="fields/field_tire_array_collision_052.obj" />
+    <mesh name="field_tire_array_collision_053" file="fields/field_tire_array_collision_053.obj" />
+    <mesh name="field_tire_array_collision_054" file="fields/field_tire_array_collision_054.obj" />
+    <mesh name="field_tire_array_collision_055" file="fields/field_tire_array_collision_055.obj" />
+    <mesh name="field_tire_array_collision_056" file="fields/field_tire_array_collision_056.obj" />
+    <mesh name="field_tire_array_collision_057" file="fields/field_tire_array_collision_057.obj" />
+    <mesh name="field_tire_array_collision_058" file="fields/field_tire_array_collision_058.obj" />
+    <mesh name="field_tire_array_collision_059" file="fields/field_tire_array_collision_059.obj" />
+    <mesh name="field_tire_array_collision_060" file="fields/field_tire_array_collision_060.obj" />
+    <mesh name="field_tire_array_collision_061" file="fields/field_tire_array_collision_061.obj" />
+    <mesh name="field_tire_array_collision_062" file="fields/field_tire_array_collision_062.obj" />
+    <mesh name="field_tire_array_collision_063" file="fields/field_tire_array_collision_063.obj" />
+    <mesh name="field_tire_array_collision_064" file="fields/field_tire_array_collision_064.obj" />
+    <mesh name="field_tire_array_collision_065" file="fields/field_tire_array_collision_065.obj" />
+    <mesh name="field_tire_array_collision_066" file="fields/field_tire_array_collision_066.obj" />
+    <mesh name="field_tire_array_collision_067" file="fields/field_tire_array_collision_067.obj" />
+    <mesh name="field_tire_array_collision_068" file="fields/field_tire_array_collision_068.obj" />
+    <mesh name="field_tire_array_collision_069" file="fields/field_tire_array_collision_069.obj" />
+    <mesh name="field_tire_array_collision_070" file="fields/field_tire_array_collision_070.obj" />
+    <mesh name="field_tire_array_collision_071" file="fields/field_tire_array_collision_071.obj" />
+    <mesh name="field_tire_array_collision_072" file="fields/field_tire_array_collision_072.obj" />
+    <mesh name="field_tire_array_collision_073" file="fields/field_tire_array_collision_073.obj" />
+    <mesh name="field_tire_array_collision_074" file="fields/field_tire_array_collision_074.obj" />
+    <mesh name="field_tire_array_collision_075" file="fields/field_tire_array_collision_075.obj" />
+    <mesh name="field_tire_array_collision_076" file="fields/field_tire_array_collision_076.obj" />
+    <mesh name="field_tire_array_collision_077" file="fields/field_tire_array_collision_077.obj" />
+    <mesh name="field_tire_array_collision_078" file="fields/field_tire_array_collision_078.obj" />
+    <mesh name="field_tire_array_collision_079" file="fields/field_tire_array_collision_079.obj" />
+    <mesh name="field_tire_array_collision_080" file="fields/field_tire_array_collision_080.obj" />
+    <mesh name="field_tire_array_collision_081" file="fields/field_tire_array_collision_081.obj" />
+    <mesh name="field_tire_array_collision_082" file="fields/field_tire_array_collision_082.obj" />
+    <mesh name="field_tire_array_collision_083" file="fields/field_tire_array_collision_083.obj" />
+    <mesh name="field_tire_array_collision_084" file="fields/field_tire_array_collision_084.obj" />
+    <mesh name="field_tire_array_collision_085" file="fields/field_tire_array_collision_085.obj" />
+    <mesh name="field_tire_array_collision_086" file="fields/field_tire_array_collision_086.obj" />
+    <mesh name="field_tire_array_collision_087" file="fields/field_tire_array_collision_087.obj" />
+    <mesh name="field_tire_array_collision_088" file="fields/field_tire_array_collision_088.obj" />
+    <mesh name="field_tire_array_collision_089" file="fields/field_tire_array_collision_089.obj" />
+    <mesh name="field_tire_array_collision_090" file="fields/field_tire_array_collision_090.obj" />
+    <mesh name="field_tire_array_collision_091" file="fields/field_tire_array_collision_091.obj" />
+    <mesh name="field_tire_array_collision_092" file="fields/field_tire_array_collision_092.obj" />
+    <mesh name="field_tire_array_collision_093" file="fields/field_tire_array_collision_093.obj" />
+    <mesh name="field_tire_array_collision_094" file="fields/field_tire_array_collision_094.obj" />
+    <mesh name="field_tire_array_collision_095" file="fields/field_tire_array_collision_095.obj" />
+    <mesh name="field_tire_array_collision_096" file="fields/field_tire_array_collision_096.obj" />
+    <mesh name="field_tire_array_collision_097" file="fields/field_tire_array_collision_097.obj" />
+    <mesh name="field_tire_array_collision_098" file="fields/field_tire_array_collision_098.obj" />
+    <mesh name="field_tire_array_collision_099" file="fields/field_tire_array_collision_099.obj" />
+    <mesh name="field_tire_array_collision_100" file="fields/field_tire_array_collision_100.obj" />
+    <mesh name="field_tire_array_collision_101" file="fields/field_tire_array_collision_101.obj" />
+    <mesh name="field_tire_array_collision_102" file="fields/field_tire_array_collision_102.obj" />
+    <mesh name="field_tire_array_collision_103" file="fields/field_tire_array_collision_103.obj" />
+    <mesh name="field_tire_array_collision_104" file="fields/field_tire_array_collision_104.obj" />
+    <mesh name="field_tire_array_collision_105" file="fields/field_tire_array_collision_105.obj" />
+    <mesh name="field_tire_array_collision_106" file="fields/field_tire_array_collision_106.obj" />
+    <mesh name="field_tire_array_collision_107" file="fields/field_tire_array_collision_107.obj" />
+    <mesh name="field_tire_array_collision_108" file="fields/field_tire_array_collision_108.obj" />
+    <mesh name="field_tire_array_collision_109" file="fields/field_tire_array_collision_109.obj" />
+    <mesh name="field_tire_array_collision_110" file="fields/field_tire_array_collision_110.obj" />
+    <mesh name="field_tire_array_collision_111" file="fields/field_tire_array_collision_111.obj" />
+    <mesh name="field_tire_array_collision_112" file="fields/field_tire_array_collision_112.obj" />
+    <mesh name="field_tire_array_collision_113" file="fields/field_tire_array_collision_113.obj" />
+    <mesh name="field_tire_array_collision_114" file="fields/field_tire_array_collision_114.obj" />
+    <mesh name="field_tire_array_collision_115" file="fields/field_tire_array_collision_115.obj" />
+    <mesh name="field_tire_array_collision_116" file="fields/field_tire_array_collision_116.obj" />
+    <mesh name="field_tire_array_collision_117" file="fields/field_tire_array_collision_117.obj" />
+    <mesh name="field_tire_array_collision_118" file="fields/field_tire_array_collision_118.obj" />
+    <mesh name="field_tire_array_collision_119" file="fields/field_tire_array_collision_119.obj" />
+    <mesh name="field_tire_array_collision_120" file="fields/field_tire_array_collision_120.obj" />
+    <mesh name="field_tire_array_collision_121" file="fields/field_tire_array_collision_121.obj" />
+    <mesh name="field_tire_array_collision_122" file="fields/field_tire_array_collision_122.obj" />
+    <mesh name="field_tire_array_collision_123" file="fields/field_tire_array_collision_123.obj" />
+    <mesh name="field_tire_array_collision_124" file="fields/field_tire_array_collision_124.obj" />
+    <mesh name="field_tire_array_collision_125" file="fields/field_tire_array_collision_125.obj" />
+    <mesh name="field_tire_array_collision_126" file="fields/field_tire_array_collision_126.obj" />
+    <mesh name="field_tire_array_collision_127" file="fields/field_tire_array_collision_127.obj" />
+    <mesh name="field_tire_array_collision_128" file="fields/field_tire_array_collision_128.obj" />
+    <mesh name="field_tire_array_collision_129" file="fields/field_tire_array_collision_129.obj" />
+    <mesh name="field_tire_array_collision_130" file="fields/field_tire_array_collision_130.obj" />
+    <mesh name="field_tire_array_collision_131" file="fields/field_tire_array_collision_131.obj" />
+    <mesh name="field_tire_array_collision_132" file="fields/field_tire_array_collision_132.obj" />
+    <mesh name="field_tire_array_collision_133" file="fields/field_tire_array_collision_133.obj" />
+    <mesh name="field_tire_array_collision_134" file="fields/field_tire_array_collision_134.obj" />
+    <mesh name="field_tire_array_collision_135" file="fields/field_tire_array_collision_135.obj" />
+    <mesh name="field_tire_array_collision_136" file="fields/field_tire_array_collision_136.obj" />
+    <mesh name="field_tire_array_collision_137" file="fields/field_tire_array_collision_137.obj" />
+    <mesh name="field_tire_array_collision_138" file="fields/field_tire_array_collision_138.obj" />
+    <mesh name="field_tire_array_collision_139" file="fields/field_tire_array_collision_139.obj" />
+    <mesh name="field_tire_array_collision_140" file="fields/field_tire_array_collision_140.obj" />
+    <mesh name="field_tire_array_collision_141" file="fields/field_tire_array_collision_141.obj" />
+    <mesh name="field_tire_array_collision_142" file="fields/field_tire_array_collision_142.obj" />
+    <mesh name="field_tire_array_collision_143" file="fields/field_tire_array_collision_143.obj" />
+    <mesh name="field_tire_array_collision_144" file="fields/field_tire_array_collision_144.obj" />
+    <mesh name="field_tire_array_collision_145" file="fields/field_tire_array_collision_145.obj" />
+    <mesh name="field_tire_array_collision_146" file="fields/field_tire_array_collision_146.obj" />
+    <mesh name="field_tire_array_collision_147" file="fields/field_tire_array_collision_147.obj" />
+    <mesh name="field_tire_array_collision_148" file="fields/field_tire_array_collision_148.obj" />
+    <mesh name="field_tire_array_collision_149" file="fields/field_tire_array_collision_149.obj" />
+    <mesh name="field_tire_array_collision_150" file="fields/field_tire_array_collision_150.obj" />
+    <mesh name="field_tire_array_collision_151" file="fields/field_tire_array_collision_151.obj" />
+    <mesh name="field_tire_array_collision_152" file="fields/field_tire_array_collision_152.obj" />
+    <mesh name="field_tire_array_collision_153" file="fields/field_tire_array_collision_153.obj" />
+    <mesh name="field_tire_array_collision_154" file="fields/field_tire_array_collision_154.obj" />
+    <mesh name="field_tire_array_collision_155" file="fields/field_tire_array_collision_155.obj" />
+    <mesh name="field_tire_array_collision_156" file="fields/field_tire_array_collision_156.obj" />
+    <mesh name="field_tire_array_collision_157" file="fields/field_tire_array_collision_157.obj" />
+    <mesh name="field_tire_array_collision_158" file="fields/field_tire_array_collision_158.obj" />
+    <mesh name="field_tire_array_collision_159" file="fields/field_tire_array_collision_159.obj" />
+    <mesh name="field_tire_array_collision_160" file="fields/field_tire_array_collision_160.obj" />
+    <mesh name="field_tire_array_collision_161" file="fields/field_tire_array_collision_161.obj" />
+    <mesh name="field_tire_array_collision_162" file="fields/field_tire_array_collision_162.obj" />
+    <mesh name="field_tire_array_collision_163" file="fields/field_tire_array_collision_163.obj" />
+    <mesh name="field_tire_array_collision_164" file="fields/field_tire_array_collision_164.obj" />
+    <mesh name="field_tire_array_collision_165" file="fields/field_tire_array_collision_165.obj" />
+    <mesh name="field_tire_array_collision_166" file="fields/field_tire_array_collision_166.obj" />
+    <mesh name="field_tire_array_collision_167" file="fields/field_tire_array_collision_167.obj" />
+    <mesh name="field_tire_array_collision_168" file="fields/field_tire_array_collision_168.obj" />
+    <mesh name="field_tire_array_collision_169" file="fields/field_tire_array_collision_169.obj" />
+    <mesh name="field_tire_array_collision_170" file="fields/field_tire_array_collision_170.obj" />
+    <mesh name="field_tire_array_collision_171" file="fields/field_tire_array_collision_171.obj" />
+    <mesh name="field_tire_array_collision_172" file="fields/field_tire_array_collision_172.obj" />
+    <mesh name="field_tire_array_collision_173" file="fields/field_tire_array_collision_173.obj" />
+    <mesh name="field_tire_array_collision_174" file="fields/field_tire_array_collision_174.obj" />
+    <mesh name="field_tire_array_collision_175" file="fields/field_tire_array_collision_175.obj" />
+    <mesh name="field_tire_array_collision_176" file="fields/field_tire_array_collision_176.obj" />
+    <mesh name="field_tire_array_collision_177" file="fields/field_tire_array_collision_177.obj" />
+    <mesh name="field_tire_array_collision_178" file="fields/field_tire_array_collision_178.obj" />
+    <mesh name="field_tire_array_collision_179" file="fields/field_tire_array_collision_179.obj" />
+    <mesh name="field_tire_array_collision_180" file="fields/field_tire_array_collision_180.obj" />
+    <mesh name="field_tire_array_collision_181" file="fields/field_tire_array_collision_181.obj" />
+    <mesh name="field_tire_array_collision_182" file="fields/field_tire_array_collision_182.obj" />
+    <mesh name="field_tire_array_collision_183" file="fields/field_tire_array_collision_183.obj" />
+    <mesh name="field_tire_array_collision_184" file="fields/field_tire_array_collision_184.obj" />
+    <mesh name="field_tire_array_collision_185" file="fields/field_tire_array_collision_185.obj" />
+    <mesh name="field_tire_array_collision_186" file="fields/field_tire_array_collision_186.obj" />
+    <mesh name="field_tire_array_collision_187" file="fields/field_tire_array_collision_187.obj" />
+    <mesh name="field_tire_array_collision_188" file="fields/field_tire_array_collision_188.obj" />
+    <mesh name="field_tire_array_collision_189" file="fields/field_tire_array_collision_189.obj" />
+    <mesh name="field_tire_array_collision_190" file="fields/field_tire_array_collision_190.obj" />
+    <mesh name="field_tire_array_collision_191" file="fields/field_tire_array_collision_191.obj" />
+    <mesh name="field_tire_array_collision_192" file="fields/field_tire_array_collision_192.obj" />
+    <mesh name="field_tire_array_collision_193" file="fields/field_tire_array_collision_193.obj" />
+    <mesh name="field_tire_array_collision_194" file="fields/field_tire_array_collision_194.obj" />
+    <mesh name="field_tire_array_collision_195" file="fields/field_tire_array_collision_195.obj" />
+    <mesh name="field_tire_array_collision_196" file="fields/field_tire_array_collision_196.obj" />
+    <mesh name="field_tire_array_collision_197" file="fields/field_tire_array_collision_197.obj" />
+    <mesh name="field_tire_array_collision_198" file="fields/field_tire_array_collision_198.obj" />
+    <mesh name="field_tire_array_collision_199" file="fields/field_tire_array_collision_199.obj" />
+    <mesh name="field_tire_array_collision_200" file="fields/field_tire_array_collision_200.obj" />
+    <mesh name="field_tire_array_collision_201" file="fields/field_tire_array_collision_201.obj" />
+    <mesh name="field_tire_array_collision_202" file="fields/field_tire_array_collision_202.obj" />
+    <mesh name="field_tire_array_collision_203" file="fields/field_tire_array_collision_203.obj" />
+    <mesh name="field_tire_array_collision_204" file="fields/field_tire_array_collision_204.obj" />
+    <mesh name="field_brick_wood_pit" file="fields/brick_wood_pit.stl" />
+    <mesh name="field_brick_wood_pit_collision_000" file="fields/field_brick_wood_pit_collision_000.obj" />
+    <mesh name="field_brick_wood_pit_collision_001" file="fields/field_brick_wood_pit_collision_001.obj" />
+    <mesh name="field_brick_wood_pit_collision_002" file="fields/field_brick_wood_pit_collision_002.obj" />
+    <mesh name="field_brick_wood_pit_collision_003" file="fields/field_brick_wood_pit_collision_003.obj" />
+    <mesh name="field_brick_wood_pit_collision_004" file="fields/field_brick_wood_pit_collision_004.obj" />
+    <mesh name="field_brick_wood_pit_collision_005" file="fields/field_brick_wood_pit_collision_005.obj" />
+    <mesh name="field_brick_wood_pit_collision_006" file="fields/field_brick_wood_pit_collision_006.obj" />
+    <mesh name="field_brick_wood_pit_collision_007" file="fields/field_brick_wood_pit_collision_007.obj" />
+    <mesh name="field_brick_wood_pit_collision_008" file="fields/field_brick_wood_pit_collision_008.obj" />
+    <mesh name="field_brick_wood_pit_collision_009" file="fields/field_brick_wood_pit_collision_009.obj" />
+    <mesh name="field_brick_wood_pit_collision_010" file="fields/field_brick_wood_pit_collision_010.obj" />
+    <mesh name="field_brick_wood_pit_collision_011" file="fields/field_brick_wood_pit_collision_011.obj" />
+    <mesh name="field_trench_combo" file="fields/trench_combo.stl" />
+    <mesh name="field_trench_combo_collision_000" file="fields/field_trench_combo_collision_000.obj" />
+    <mesh name="field_trench_combo_collision_001" file="fields/field_trench_combo_collision_001.obj" />
+    <mesh name="field_trench_combo_collision_002" file="fields/field_trench_combo_collision_002.obj" />
+    <mesh name="field_trench_combo_collision_003" file="fields/field_trench_combo_collision_003.obj" />
+    <mesh name="field_plum_stakes" file="fields/plum_stakes.stl" />
+    <mesh name="field_plum_stakes_collision_000" file="fields/field_plum_stakes_collision_000.obj" />
+    <mesh name="field_plum_stakes_collision_001" file="fields/field_plum_stakes_collision_001.obj" />
+    <mesh name="field_plum_stakes_collision_002" file="fields/field_plum_stakes_collision_002.obj" />
+    <mesh name="field_plum_stakes_collision_003" file="fields/field_plum_stakes_collision_003.obj" />
+    <mesh name="field_plum_stakes_collision_004" file="fields/field_plum_stakes_collision_004.obj" />
+    <mesh name="field_plum_stakes_collision_005" file="fields/field_plum_stakes_collision_005.obj" />
+    <mesh name="field_plum_stakes_collision_006" file="fields/field_plum_stakes_collision_006.obj" />
+    <mesh name="field_plum_stakes_collision_007" file="fields/field_plum_stakes_collision_007.obj" />
+    <mesh name="field_slalom_posts" file="fields/slalom_posts.stl" />
+    <mesh name="field_slalom_posts_collision_000" file="fields/field_slalom_posts_collision_000.obj" />
+    <mesh name="field_slalom_posts_collision_001" file="fields/field_slalom_posts_collision_001.obj" />
+    <mesh name="field_slalom_posts_collision_002" file="fields/field_slalom_posts_collision_002.obj" />
+    <mesh name="field_slalom_posts_collision_003" file="fields/field_slalom_posts_collision_003.obj" />
+    <mesh name="field_slalom_posts_collision_004" file="fields/field_slalom_posts_collision_004.obj" />
+    <mesh name="field_slalom_posts_collision_005" file="fields/field_slalom_posts_collision_005.obj" />
+    <mesh name="field_slalom_posts_collision_006" file="fields/field_slalom_posts_collision_006.obj" />
+    <mesh name="field_slalom_posts_collision_007" file="fields/field_slalom_posts_collision_007.obj" />
+    <mesh name="field_slalom_posts_collision_008" file="fields/field_slalom_posts_collision_008.obj" />
+    <mesh name="field_slalom_posts_collision_009" file="fields/field_slalom_posts_collision_009.obj" />
+    <mesh name="field_slalom_posts_collision_010" file="fields/field_slalom_posts_collision_010.obj" />
+    <mesh name="field_slalom_posts_collision_011" file="fields/field_slalom_posts_collision_011.obj" />
+    <mesh name="field_slalom_posts_collision_012" file="fields/field_slalom_posts_collision_012.obj" />
+    <mesh name="field_slalom_posts_collision_013" file="fields/field_slalom_posts_collision_013.obj" />
+    <mesh name="field_slalom_posts_collision_014" file="fields/field_slalom_posts_collision_014.obj" />
+    <mesh name="field_slalom_posts_collision_015" file="fields/field_slalom_posts_collision_015.obj" />
+    <mesh name="field_slalom_posts_collision_016" file="fields/field_slalom_posts_collision_016.obj" />
+    <mesh name="field_slalom_posts_collision_017" file="fields/field_slalom_posts_collision_017.obj" />
+    <mesh name="field_slalom_posts_collision_018" file="fields/field_slalom_posts_collision_018.obj" />
+    <mesh name="field_slalom_posts_collision_019" file="fields/field_slalom_posts_collision_019.obj" />
+    <mesh name="field_slalom_posts_collision_020" file="fields/field_slalom_posts_collision_020.obj" />
+    <mesh name="field_slalom_posts_collision_021" file="fields/field_slalom_posts_collision_021.obj" />
+    <mesh name="field_slalom_posts_collision_022" file="fields/field_slalom_posts_collision_022.obj" />
+    <mesh name="field_slalom_posts_collision_023" file="fields/field_slalom_posts_collision_023.obj" />
+    <mesh name="field_slalom_posts_collision_024" file="fields/field_slalom_posts_collision_024.obj" />
+    <mesh name="field_slalom_posts_collision_025" file="fields/field_slalom_posts_collision_025.obj" />
+    <mesh name="field_slalom_posts_collision_026" file="fields/field_slalom_posts_collision_026.obj" />
+    <mesh name="field_slalom_posts_collision_027" file="fields/field_slalom_posts_collision_027.obj" />
+    <mesh name="field_slalom_posts_collision_028" file="fields/field_slalom_posts_collision_028.obj" />
+    <mesh name="field_slalom_posts_collision_029" file="fields/field_slalom_posts_collision_029.obj" />
+    <mesh name="field_slalom_posts_collision_030" file="fields/field_slalom_posts_collision_030.obj" />
+    <mesh name="field_slalom_posts_collision_031" file="fields/field_slalom_posts_collision_031.obj" />
+    <mesh name="field_slalom_posts_collision_032" file="fields/field_slalom_posts_collision_032.obj" />
+    <mesh name="field_slalom_posts_collision_033" file="fields/field_slalom_posts_collision_033.obj" />
+    <mesh name="field_slalom_posts_collision_034" file="fields/field_slalom_posts_collision_034.obj" />
+    <mesh name="field_slalom_posts_collision_035" file="fields/field_slalom_posts_collision_035.obj" />
+    <mesh name="field_slalom_posts_collision_036" file="fields/field_slalom_posts_collision_036.obj" />
+    <mesh name="field_slalom_posts_collision_037" file="fields/field_slalom_posts_collision_037.obj" />
+    <mesh name="field_slalom_posts_collision_038" file="fields/field_slalom_posts_collision_038.obj" />
+    <mesh name="field_slalom_posts_collision_039" file="fields/field_slalom_posts_collision_039.obj" />
+    <mesh name="field_slalom_posts_collision_040" file="fields/field_slalom_posts_collision_040.obj" />
+    <mesh name="field_slalom_posts_collision_041" file="fields/field_slalom_posts_collision_041.obj" />
+    <mesh name="field_slalom_posts_collision_042" file="fields/field_slalom_posts_collision_042.obj" />
+    <mesh name="field_slalom_posts_collision_043" file="fields/field_slalom_posts_collision_043.obj" />
+    <mesh name="field_slalom_posts_collision_044" file="fields/field_slalom_posts_collision_044.obj" />
+    <mesh name="field_height_gate" file="fields/height_gate.stl" />
+    <mesh name="field_height_gate_collision_000" file="fields/field_height_gate_collision_000.obj" />
+    <mesh name="field_height_gate_collision_001" file="fields/field_height_gate_collision_001.obj" />
+    <mesh name="field_height_gate_collision_002" file="fields/field_height_gate_collision_002.obj" />
+    <mesh name="field_height_gate_collision_003" file="fields/field_height_gate_collision_003.obj" />
+    <mesh name="field_height_gate_collision_004" file="fields/field_height_gate_collision_004.obj" />
+    <mesh name="field_height_gate_collision_005" file="fields/field_height_gate_collision_005.obj" />
+    <mesh name="field_height_gate_collision_006" file="fields/field_height_gate_collision_006.obj" />
+    <mesh name="field_height_gate_collision_007" file="fields/field_height_gate_collision_007.obj" />
+    <mesh name="field_height_gate_collision_008" file="fields/field_height_gate_collision_008.obj" />
+    <mesh name="field_height_gate_collision_009" file="fields/field_height_gate_collision_009.obj" />
+    <mesh name="field_height_gate_collision_010" file="fields/field_height_gate_collision_010.obj" />
+    <mesh name="field_height_gate_collision_011" file="fields/field_height_gate_collision_011.obj" />
+    <mesh name="field_height_gate_collision_012" file="fields/field_height_gate_collision_012.obj" />
+  </asset>
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true" />
+    <geom name="floor" size="0 0 0.05" type="plane" material="groundplane" />
+    <camera name="course_overview" pos="20.5 -15 16" xyaxes="1 0 0 0 0.729537 0.683941" fovy="60" />
+    <camera name="course_top" pos="20.5 0 22" xyaxes="1 0 0 0 1 0" fovy="60" />
+    <!-- 高墙: center x=3 m; dimensions 0.08 0.8 0.3 m -->
+    <body name="field_high_wall" pos="3 0 0">
+      <geom name="high_wall_visual" type="mesh" mesh="field_high_wall" contype="0" conaffinity="0" group="2" density="0" rgba="0.6 0.35 0.16 1" />
+      <geom name="field_high_wall_collision_000" type="mesh" mesh="field_high_wall_collision_000" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <site name="01_high_wall" pos="0 0 0.45" size="0.015" rgba="0.1 0.6 0.9 1" group="4" />
+    </body>
+    <!-- 单木桥: center x=8 m; dimensions 3 0.4 0.1 m -->
+    <body name="field_single_log_bridge" pos="8 0 0">
+      <geom name="single_log_bridge_visual" type="mesh" mesh="field_single_log_bridge" contype="0" conaffinity="0" group="2" density="0" rgba="0.6 0.35 0.16 1" />
+      <geom name="field_single_log_bridge_collision_000" type="mesh" mesh="field_single_log_bridge_collision_000" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <site name="02_single_log_bridge" pos="0 0 0.25" size="0.015" rgba="0.1 0.6 0.9 1" group="4" />
+    </body>
+    <!-- 轮胎阵: center x=13 m; dimensions 2.2 1.1 0.165 m -->
+    <body name="field_tire_array" pos="13 0 0">
+      <geom name="tire_array_visual" type="mesh" mesh="field_tire_array" contype="0" conaffinity="0" group="2" density="0" rgba="0.12 0.13 0.14 1" />
+      <geom name="field_tire_array_collision_000" type="mesh" mesh="field_tire_array_collision_000" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_001" type="mesh" mesh="field_tire_array_collision_001" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_002" type="mesh" mesh="field_tire_array_collision_002" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_003" type="mesh" mesh="field_tire_array_collision_003" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_004" type="mesh" mesh="field_tire_array_collision_004" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_005" type="mesh" mesh="field_tire_array_collision_005" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_006" type="mesh" mesh="field_tire_array_collision_006" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_007" type="mesh" mesh="field_tire_array_collision_007" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_008" type="mesh" mesh="field_tire_array_collision_008" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_009" type="mesh" mesh="field_tire_array_collision_009" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_010" type="mesh" mesh="field_tire_array_collision_010" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_011" type="mesh" mesh="field_tire_array_collision_011" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_012" type="mesh" mesh="field_tire_array_collision_012" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_013" type="mesh" mesh="field_tire_array_collision_013" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_014" type="mesh" mesh="field_tire_array_collision_014" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_015" type="mesh" mesh="field_tire_array_collision_015" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_016" type="mesh" mesh="field_tire_array_collision_016" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_017" type="mesh" mesh="field_tire_array_collision_017" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_018" type="mesh" mesh="field_tire_array_collision_018" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_019" type="mesh" mesh="field_tire_array_collision_019" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_020" type="mesh" mesh="field_tire_array_collision_020" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_021" type="mesh" mesh="field_tire_array_collision_021" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_022" type="mesh" mesh="field_tire_array_collision_022" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_023" type="mesh" mesh="field_tire_array_collision_023" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_024" type="mesh" mesh="field_tire_array_collision_024" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_025" type="mesh" mesh="field_tire_array_collision_025" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_026" type="mesh" mesh="field_tire_array_collision_026" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_027" type="mesh" mesh="field_tire_array_collision_027" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_028" type="mesh" mesh="field_tire_array_collision_028" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_029" type="mesh" mesh="field_tire_array_collision_029" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_030" type="mesh" mesh="field_tire_array_collision_030" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_031" type="mesh" mesh="field_tire_array_collision_031" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_032" type="mesh" mesh="field_tire_array_collision_032" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_033" type="mesh" mesh="field_tire_array_collision_033" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_034" type="mesh" mesh="field_tire_array_collision_034" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_035" type="mesh" mesh="field_tire_array_collision_035" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_036" type="mesh" mesh="field_tire_array_collision_036" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_037" type="mesh" mesh="field_tire_array_collision_037" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_038" type="mesh" mesh="field_tire_array_collision_038" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_039" type="mesh" mesh="field_tire_array_collision_039" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_040" type="mesh" mesh="field_tire_array_collision_040" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_041" type="mesh" mesh="field_tire_array_collision_041" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_042" type="mesh" mesh="field_tire_array_collision_042" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_043" type="mesh" mesh="field_tire_array_collision_043" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_044" type="mesh" mesh="field_tire_array_collision_044" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_045" type="mesh" mesh="field_tire_array_collision_045" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_046" type="mesh" mesh="field_tire_array_collision_046" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_047" type="mesh" mesh="field_tire_array_collision_047" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_048" type="mesh" mesh="field_tire_array_collision_048" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_049" type="mesh" mesh="field_tire_array_collision_049" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_050" type="mesh" mesh="field_tire_array_collision_050" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_051" type="mesh" mesh="field_tire_array_collision_051" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_052" type="mesh" mesh="field_tire_array_collision_052" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_053" type="mesh" mesh="field_tire_array_collision_053" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_054" type="mesh" mesh="field_tire_array_collision_054" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_055" type="mesh" mesh="field_tire_array_collision_055" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_056" type="mesh" mesh="field_tire_array_collision_056" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_057" type="mesh" mesh="field_tire_array_collision_057" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_058" type="mesh" mesh="field_tire_array_collision_058" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_059" type="mesh" mesh="field_tire_array_collision_059" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_060" type="mesh" mesh="field_tire_array_collision_060" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_061" type="mesh" mesh="field_tire_array_collision_061" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_062" type="mesh" mesh="field_tire_array_collision_062" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_063" type="mesh" mesh="field_tire_array_collision_063" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_064" type="mesh" mesh="field_tire_array_collision_064" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_065" type="mesh" mesh="field_tire_array_collision_065" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_066" type="mesh" mesh="field_tire_array_collision_066" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_067" type="mesh" mesh="field_tire_array_collision_067" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_068" type="mesh" mesh="field_tire_array_collision_068" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_069" type="mesh" mesh="field_tire_array_collision_069" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_070" type="mesh" mesh="field_tire_array_collision_070" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_071" type="mesh" mesh="field_tire_array_collision_071" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_072" type="mesh" mesh="field_tire_array_collision_072" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_073" type="mesh" mesh="field_tire_array_collision_073" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_074" type="mesh" mesh="field_tire_array_collision_074" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_075" type="mesh" mesh="field_tire_array_collision_075" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_076" type="mesh" mesh="field_tire_array_collision_076" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_077" type="mesh" mesh="field_tire_array_collision_077" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_078" type="mesh" mesh="field_tire_array_collision_078" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_079" type="mesh" mesh="field_tire_array_collision_079" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_080" type="mesh" mesh="field_tire_array_collision_080" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_081" type="mesh" mesh="field_tire_array_collision_081" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_082" type="mesh" mesh="field_tire_array_collision_082" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_083" type="mesh" mesh="field_tire_array_collision_083" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_084" type="mesh" mesh="field_tire_array_collision_084" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_085" type="mesh" mesh="field_tire_array_collision_085" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_086" type="mesh" mesh="field_tire_array_collision_086" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_087" type="mesh" mesh="field_tire_array_collision_087" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_088" type="mesh" mesh="field_tire_array_collision_088" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_089" type="mesh" mesh="field_tire_array_collision_089" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_090" type="mesh" mesh="field_tire_array_collision_090" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_091" type="mesh" mesh="field_tire_array_collision_091" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_092" type="mesh" mesh="field_tire_array_collision_092" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_093" type="mesh" mesh="field_tire_array_collision_093" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_094" type="mesh" mesh="field_tire_array_collision_094" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_095" type="mesh" mesh="field_tire_array_collision_095" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_096" type="mesh" mesh="field_tire_array_collision_096" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_097" type="mesh" mesh="field_tire_array_collision_097" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_098" type="mesh" mesh="field_tire_array_collision_098" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_099" type="mesh" mesh="field_tire_array_collision_099" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_100" type="mesh" mesh="field_tire_array_collision_100" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_101" type="mesh" mesh="field_tire_array_collision_101" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_102" type="mesh" mesh="field_tire_array_collision_102" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_103" type="mesh" mesh="field_tire_array_collision_103" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_104" type="mesh" mesh="field_tire_array_collision_104" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_105" type="mesh" mesh="field_tire_array_collision_105" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_106" type="mesh" mesh="field_tire_array_collision_106" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_107" type="mesh" mesh="field_tire_array_collision_107" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_108" type="mesh" mesh="field_tire_array_collision_108" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_109" type="mesh" mesh="field_tire_array_collision_109" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_110" type="mesh" mesh="field_tire_array_collision_110" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_111" type="mesh" mesh="field_tire_array_collision_111" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_112" type="mesh" mesh="field_tire_array_collision_112" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_113" type="mesh" mesh="field_tire_array_collision_113" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_114" type="mesh" mesh="field_tire_array_collision_114" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_115" type="mesh" mesh="field_tire_array_collision_115" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_116" type="mesh" mesh="field_tire_array_collision_116" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_117" type="mesh" mesh="field_tire_array_collision_117" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_118" type="mesh" mesh="field_tire_array_collision_118" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_119" type="mesh" mesh="field_tire_array_collision_119" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_120" type="mesh" mesh="field_tire_array_collision_120" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_121" type="mesh" mesh="field_tire_array_collision_121" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_122" type="mesh" mesh="field_tire_array_collision_122" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_123" type="mesh" mesh="field_tire_array_collision_123" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_124" type="mesh" mesh="field_tire_array_collision_124" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_125" type="mesh" mesh="field_tire_array_collision_125" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_126" type="mesh" mesh="field_tire_array_collision_126" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_127" type="mesh" mesh="field_tire_array_collision_127" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_128" type="mesh" mesh="field_tire_array_collision_128" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_129" type="mesh" mesh="field_tire_array_collision_129" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_130" type="mesh" mesh="field_tire_array_collision_130" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_131" type="mesh" mesh="field_tire_array_collision_131" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_132" type="mesh" mesh="field_tire_array_collision_132" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_133" type="mesh" mesh="field_tire_array_collision_133" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_134" type="mesh" mesh="field_tire_array_collision_134" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_135" type="mesh" mesh="field_tire_array_collision_135" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_136" type="mesh" mesh="field_tire_array_collision_136" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_137" type="mesh" mesh="field_tire_array_collision_137" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_138" type="mesh" mesh="field_tire_array_collision_138" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_139" type="mesh" mesh="field_tire_array_collision_139" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_140" type="mesh" mesh="field_tire_array_collision_140" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_141" type="mesh" mesh="field_tire_array_collision_141" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_142" type="mesh" mesh="field_tire_array_collision_142" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_143" type="mesh" mesh="field_tire_array_collision_143" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_144" type="mesh" mesh="field_tire_array_collision_144" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_145" type="mesh" mesh="field_tire_array_collision_145" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_146" type="mesh" mesh="field_tire_array_collision_146" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_147" type="mesh" mesh="field_tire_array_collision_147" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_148" type="mesh" mesh="field_tire_array_collision_148" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_149" type="mesh" mesh="field_tire_array_collision_149" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_150" type="mesh" mesh="field_tire_array_collision_150" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_151" type="mesh" mesh="field_tire_array_collision_151" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_152" type="mesh" mesh="field_tire_array_collision_152" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_153" type="mesh" mesh="field_tire_array_collision_153" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_154" type="mesh" mesh="field_tire_array_collision_154" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_155" type="mesh" mesh="field_tire_array_collision_155" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_156" type="mesh" mesh="field_tire_array_collision_156" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_157" type="mesh" mesh="field_tire_array_collision_157" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_158" type="mesh" mesh="field_tire_array_collision_158" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_159" type="mesh" mesh="field_tire_array_collision_159" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_160" type="mesh" mesh="field_tire_array_collision_160" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_161" type="mesh" mesh="field_tire_array_collision_161" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_162" type="mesh" mesh="field_tire_array_collision_162" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_163" type="mesh" mesh="field_tire_array_collision_163" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_164" type="mesh" mesh="field_tire_array_collision_164" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_165" type="mesh" mesh="field_tire_array_collision_165" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_166" type="mesh" mesh="field_tire_array_collision_166" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_167" type="mesh" mesh="field_tire_array_collision_167" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_168" type="mesh" mesh="field_tire_array_collision_168" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_169" type="mesh" mesh="field_tire_array_collision_169" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_170" type="mesh" mesh="field_tire_array_collision_170" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_171" type="mesh" mesh="field_tire_array_collision_171" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_172" type="mesh" mesh="field_tire_array_collision_172" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_173" type="mesh" mesh="field_tire_array_collision_173" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_174" type="mesh" mesh="field_tire_array_collision_174" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_175" type="mesh" mesh="field_tire_array_collision_175" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_176" type="mesh" mesh="field_tire_array_collision_176" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_177" type="mesh" mesh="field_tire_array_collision_177" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_178" type="mesh" mesh="field_tire_array_collision_178" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_179" type="mesh" mesh="field_tire_array_collision_179" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_180" type="mesh" mesh="field_tire_array_collision_180" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_181" type="mesh" mesh="field_tire_array_collision_181" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_182" type="mesh" mesh="field_tire_array_collision_182" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_183" type="mesh" mesh="field_tire_array_collision_183" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_184" type="mesh" mesh="field_tire_array_collision_184" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_185" type="mesh" mesh="field_tire_array_collision_185" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_186" type="mesh" mesh="field_tire_array_collision_186" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_187" type="mesh" mesh="field_tire_array_collision_187" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_188" type="mesh" mesh="field_tire_array_collision_188" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_189" type="mesh" mesh="field_tire_array_collision_189" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_190" type="mesh" mesh="field_tire_array_collision_190" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_191" type="mesh" mesh="field_tire_array_collision_191" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_192" type="mesh" mesh="field_tire_array_collision_192" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_193" type="mesh" mesh="field_tire_array_collision_193" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_194" type="mesh" mesh="field_tire_array_collision_194" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_195" type="mesh" mesh="field_tire_array_collision_195" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_196" type="mesh" mesh="field_tire_array_collision_196" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_197" type="mesh" mesh="field_tire_array_collision_197" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_198" type="mesh" mesh="field_tire_array_collision_198" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_199" type="mesh" mesh="field_tire_array_collision_199" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_200" type="mesh" mesh="field_tire_array_collision_200" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_201" type="mesh" mesh="field_tire_array_collision_201" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_202" type="mesh" mesh="field_tire_array_collision_202" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_203" type="mesh" mesh="field_tire_array_collision_203" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_tire_array_collision_204" type="mesh" mesh="field_tire_array_collision_204" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <site name="03_tire_array" pos="0 0 0.315" size="0.015" rgba="0.1 0.6 0.9 1" group="4" />
+    </body>
+    <!-- 砖木坑: center x=18 m; dimensions 2 2 0.15 m -->
+    <body name="field_brick_wood_pit" pos="18 0 0">
+      <geom name="brick_wood_pit_visual" type="mesh" mesh="field_brick_wood_pit" contype="0" conaffinity="0" group="2" density="0" rgba="0.6 0.35 0.16 1" />
+      <geom name="field_brick_wood_pit_collision_000" type="mesh" mesh="field_brick_wood_pit_collision_000" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_001" type="mesh" mesh="field_brick_wood_pit_collision_001" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_002" type="mesh" mesh="field_brick_wood_pit_collision_002" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_003" type="mesh" mesh="field_brick_wood_pit_collision_003" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_004" type="mesh" mesh="field_brick_wood_pit_collision_004" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_005" type="mesh" mesh="field_brick_wood_pit_collision_005" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_006" type="mesh" mesh="field_brick_wood_pit_collision_006" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_007" type="mesh" mesh="field_brick_wood_pit_collision_007" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_008" type="mesh" mesh="field_brick_wood_pit_collision_008" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_009" type="mesh" mesh="field_brick_wood_pit_collision_009" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_010" type="mesh" mesh="field_brick_wood_pit_collision_010" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_brick_wood_pit_collision_011" type="mesh" mesh="field_brick_wood_pit_collision_011" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <site name="04_brick_wood_pit" pos="0 0 0.3" size="0.015" rgba="0.1 0.6 0.9 1" group="4" />
+    </body>
+    <!-- 沟壑组合: center x=23 m; dimensions 2.6 1.78909187 0.36 m -->
+    <body name="field_trench_combo" pos="23 0 0">
+      <geom name="trench_combo_visual" type="mesh" mesh="field_trench_combo" contype="0" conaffinity="0" group="2" density="0" rgba="0.6 0.35 0.16 1" />
+      <geom name="field_trench_combo_collision_000" type="mesh" mesh="field_trench_combo_collision_000" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_trench_combo_collision_001" type="mesh" mesh="field_trench_combo_collision_001" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_trench_combo_collision_002" type="mesh" mesh="field_trench_combo_collision_002" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_trench_combo_collision_003" type="mesh" mesh="field_trench_combo_collision_003" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <site name="05_trench_combo" pos="0 0 0.51" size="0.015" rgba="0.1 0.6 0.9 1" group="4" />
+    </body>
+    <!-- 梅花桩: center x=28 m; dimensions 3.5 0.8 0.2 m -->
+    <body name="field_plum_stakes" pos="28 0 0">
+      <geom name="plum_stakes_visual" type="mesh" mesh="field_plum_stakes" contype="0" conaffinity="0" group="2" density="0" rgba="0.6 0.35 0.16 1" />
+      <geom name="field_plum_stakes_collision_000" type="mesh" mesh="field_plum_stakes_collision_000" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_plum_stakes_collision_001" type="mesh" mesh="field_plum_stakes_collision_001" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_plum_stakes_collision_002" type="mesh" mesh="field_plum_stakes_collision_002" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_plum_stakes_collision_003" type="mesh" mesh="field_plum_stakes_collision_003" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_plum_stakes_collision_004" type="mesh" mesh="field_plum_stakes_collision_004" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_plum_stakes_collision_005" type="mesh" mesh="field_plum_stakes_collision_005" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_plum_stakes_collision_006" type="mesh" mesh="field_plum_stakes_collision_006" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_plum_stakes_collision_007" type="mesh" mesh="field_plum_stakes_collision_007" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <site name="06_plum_stakes" pos="0 0 0.35" size="0.015" rgba="0.1 0.6 0.9 1" group="4" />
+    </body>
+    <!-- 绕桩: center x=33 m; dimensions 2.8 1.9 0.1 m -->
+    <body name="field_slalom_posts" pos="33 0 0">
+      <geom name="slalom_posts_visual" type="mesh" mesh="field_slalom_posts" contype="0" conaffinity="0" group="2" density="0" rgba="0.6 0.35 0.16 1" />
+      <geom name="field_slalom_posts_collision_000" type="mesh" mesh="field_slalom_posts_collision_000" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_001" type="mesh" mesh="field_slalom_posts_collision_001" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_002" type="mesh" mesh="field_slalom_posts_collision_002" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_003" type="mesh" mesh="field_slalom_posts_collision_003" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_004" type="mesh" mesh="field_slalom_posts_collision_004" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_005" type="mesh" mesh="field_slalom_posts_collision_005" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_006" type="mesh" mesh="field_slalom_posts_collision_006" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_007" type="mesh" mesh="field_slalom_posts_collision_007" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_008" type="mesh" mesh="field_slalom_posts_collision_008" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_009" type="mesh" mesh="field_slalom_posts_collision_009" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_010" type="mesh" mesh="field_slalom_posts_collision_010" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_011" type="mesh" mesh="field_slalom_posts_collision_011" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_012" type="mesh" mesh="field_slalom_posts_collision_012" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_013" type="mesh" mesh="field_slalom_posts_collision_013" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_014" type="mesh" mesh="field_slalom_posts_collision_014" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_015" type="mesh" mesh="field_slalom_posts_collision_015" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_016" type="mesh" mesh="field_slalom_posts_collision_016" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_017" type="mesh" mesh="field_slalom_posts_collision_017" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_018" type="mesh" mesh="field_slalom_posts_collision_018" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_019" type="mesh" mesh="field_slalom_posts_collision_019" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_020" type="mesh" mesh="field_slalom_posts_collision_020" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_021" type="mesh" mesh="field_slalom_posts_collision_021" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_022" type="mesh" mesh="field_slalom_posts_collision_022" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_023" type="mesh" mesh="field_slalom_posts_collision_023" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_024" type="mesh" mesh="field_slalom_posts_collision_024" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_025" type="mesh" mesh="field_slalom_posts_collision_025" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_026" type="mesh" mesh="field_slalom_posts_collision_026" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_027" type="mesh" mesh="field_slalom_posts_collision_027" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_028" type="mesh" mesh="field_slalom_posts_collision_028" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_029" type="mesh" mesh="field_slalom_posts_collision_029" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_030" type="mesh" mesh="field_slalom_posts_collision_030" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_031" type="mesh" mesh="field_slalom_posts_collision_031" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_032" type="mesh" mesh="field_slalom_posts_collision_032" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_033" type="mesh" mesh="field_slalom_posts_collision_033" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_034" type="mesh" mesh="field_slalom_posts_collision_034" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_035" type="mesh" mesh="field_slalom_posts_collision_035" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_036" type="mesh" mesh="field_slalom_posts_collision_036" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_037" type="mesh" mesh="field_slalom_posts_collision_037" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_038" type="mesh" mesh="field_slalom_posts_collision_038" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_039" type="mesh" mesh="field_slalom_posts_collision_039" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_040" type="mesh" mesh="field_slalom_posts_collision_040" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_041" type="mesh" mesh="field_slalom_posts_collision_041" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_042" type="mesh" mesh="field_slalom_posts_collision_042" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_043" type="mesh" mesh="field_slalom_posts_collision_043" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_slalom_posts_collision_044" type="mesh" mesh="field_slalom_posts_collision_044" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <site name="07_slalom_posts" pos="0 0 0.25" size="0.015" rgba="0.1 0.6 0.9 1" group="4" />
+    </body>
+    <!-- 限高架: center x=38 m; dimensions 0.8 0.84 0.31 m -->
+    <body name="field_height_gate" pos="38 0 0">
+      <geom name="height_gate_visual" type="mesh" mesh="field_height_gate" contype="0" conaffinity="0" group="2" density="0" rgba="0.6 0.35 0.16 1" />
+      <geom name="field_height_gate_collision_000" type="mesh" mesh="field_height_gate_collision_000" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_001" type="mesh" mesh="field_height_gate_collision_001" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_002" type="mesh" mesh="field_height_gate_collision_002" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_003" type="mesh" mesh="field_height_gate_collision_003" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_004" type="mesh" mesh="field_height_gate_collision_004" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_005" type="mesh" mesh="field_height_gate_collision_005" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_006" type="mesh" mesh="field_height_gate_collision_006" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_007" type="mesh" mesh="field_height_gate_collision_007" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_008" type="mesh" mesh="field_height_gate_collision_008" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_009" type="mesh" mesh="field_height_gate_collision_009" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_010" type="mesh" mesh="field_height_gate_collision_010" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_011" type="mesh" mesh="field_height_gate_collision_011" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <geom name="field_height_gate_collision_012" type="mesh" mesh="field_height_gate_collision_012" contype="1" conaffinity="1" group="3" density="1000" friction="1 0.005 0.0001" condim="3" rgba="0.9 0.3 0.1 0.35" />
+      <site name="08_height_gate" pos="0 0 0.46" size="0.015" rgba="0.1 0.6 0.9 1" group="4" />
+    </body>
+  </worldbody>
+</mujoco>

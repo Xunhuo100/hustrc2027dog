@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>himloco_policy</name>
+  <version>0.1.0</version>
+  <description>HIMLoco observation processing, TorchScript inference and policy export.</description>
+  <maintainer email="wangmx@todo.todo">wangmx</maintainer>
+  <license>BSD-3-Clause</license>
+  <license>CC-BY-NC-SA-4.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>wheel_leg_interfaces</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <test_depend>python3-pytest</test_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

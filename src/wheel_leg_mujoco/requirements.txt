@@ -1,0 +1,3 @@
+# ROS2 Humble / Python 3.10；仿真不需要 Torch。
+numpy>=1.21,<2
+mujoco==3.2.7

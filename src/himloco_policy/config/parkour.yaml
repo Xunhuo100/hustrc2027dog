@@ -1,0 +1,8 @@
+# HIMLoco 动作基准与 PD；与训练配置及控制器站姿配套。
+himloco_policy:
+  ros__parameters:
+    default_position: [0.0, 0.8, -1.5, 0.0, 0.0, 0.8, -1.5, 0.0, 0.0, 0.8, -1.5, 0.0,
+      0.0, 0.8, -1.5, 0.0]
+    leg_kp: 40.0
+    leg_kd: 1.0
+    wheel_kd: 0.5

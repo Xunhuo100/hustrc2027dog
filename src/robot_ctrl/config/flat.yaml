@@ -1,0 +1,8 @@
+# Stand 站姿与 PD；需要与所选策略的动作基准一致。
+robot_ctrl:
+  ros__parameters:
+    default_position: [0.1, 0.8, -1.5, 0.0, -0.1, 0.8, -1.5, 0.0, 0.1, 1.0, -1.5,
+      0.0, -0.1, 1.0, -1.5, 0.0]
+    leg_kp: 20.0
+    leg_kd: 0.5
+    wheel_kd: 0.3
