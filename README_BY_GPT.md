@@ -11,7 +11,7 @@ ROS2 Humble，C++ 控制器，Python TorchScript 推理，默认 MuJoCo 仿真�
 ## 代码结构
 
 - `src/wheel_leg_interfaces`：固定 16 电机的 `RobotState` / `RobotCommand`。
-- `src/robot_ctrl`：200 Hz 底层收发与 Passive / Stand / RL 状态机。
+- `src/robot_ctrl`：200 Hz 底层收发，显式 FSM 管理 Passive / Stand / RL 三个独立状态类。
 - `src/himloco_sim2sim`：50 Hz HIMLoco 推理、模型导出脚本和 MuJoCo ROS2 桥。
 - `src/robot_ctrl/legacy`：原来 12 自由度框架的完整源文件和构建配置，不参与编译。
 
@@ -199,11 +199,11 @@ LowCmd/LowState 槽位。当前 XML 和现有 MuJoCo 桥都是 FL/FR/RL/RR 交�
 | 获取 IMU | LowState 内的 `imu_state` | 同一回调转换为 `getState().imu` |
 | 统一状态输出 | `/robot/state`，`wheel_leg_interfaces/msg/RobotState` | `RobotIO::publishState()` |
 | IMU 单独输出 | `/robot/imu`，`sensor_msgs/msg/Imu` | `RobotIO::publishState()` |
-| RL 目标输入 | `/robot/rl_cmd`，`wheel_leg_interfaces/msg/RobotCommand` | `RobotController::policyCallback()` → `State_RL::receive()` |
+| RL 目标输入 | `/robot/rl_cmd`，`wheel_leg_interfaces/msg/RobotCommand` | `RobotController::policyCallback()` → `FSM::receivePolicy()` → `State_RL::receive()` |
 | 深度图输入 | `/camera/depth/image_raw`，`sensor_msgs/msg/Image` | `RobotIO::depthCallback()` / `getDepthImage()` |
 | 深度相机内参 | `/camera/depth/camera_info`，`sensor_msgs/msg/CameraInfo` | `RobotIO::cameraInfoCallback()` / `getDepthCameraInfo()` |
 | 速度命令 | `/cmd_vel`，`geometry_msgs/msg/Twist` | `HimLocoPolicy.velocity_callback()` |
-| 状态切换 | `/robot/mode`，`std_msgs/msg/String` | `RobotController::modeCallback()` |
+| 状态切换 | `/robot/mode`，`std_msgs/msg/String` | `RobotController::modeCallback()` → `FSM::changeMode()` |
 
 实现位置为 `src/robot_ctrl/include/interface/RobotIO.h` 与 `src/robot_ctrl/src/interface/RobotIO.cpp`。
 `getState().motor_state[i]` 提供位置 rad、速度 rad/s、估计力矩 N·m。
@@ -220,6 +220,12 @@ Unitree IMU 原始四元数为 **w,x,y,z**，转换到 ROS 消息的具名 x/y/z
 因此默认关闭。深度参数可通过单独运行桥的 `--ros-args -p enable_depth:=true` 设置。
 
 ## RL 状态与保护
+
+状态实现位于 `src/robot_ctrl/src/FSM/`：`State_Passive.cpp` 生成阻尼指令，
+`State_Stand.cpp` 负责站立插值，`State_RL.cpp` 接收并输出策略指令。
+三个状态共用 `FSMState` 的 `enter/run/exit/checkChange` 接口，由 `FSM.cpp` 统一切换并维护会话。
+`RobotController.cpp` 保留 ROS2 收发回调、全局保护和最终电机输出，反馈失效时统一覆盖为禁用指令。
+重复状态请求不重启生命周期，退出 RL 会清空旧策略指令。
 
 Passive 对腿施加阻尼、轮目标速度为零；Stand 用 1.5 秒从反馈姿态插值到默认站姿；
 只有 Stand 完成且反馈有效后才接受 RL 状态切换。
