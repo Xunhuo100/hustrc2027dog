@@ -4,8 +4,10 @@ import numpy as np
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src/himloco_sim2sim"))
-from himloco_sim2sim.policy_core import HimPolicyCore, DEFAULT_POSITION, projected_gravity
+MODEL_DIR = ROOT / "src/wheel_leg_mujoco/models/go2w/urdf"
+sys.path.insert(0, str(ROOT / "src/himloco_policy"))
+sys.path.insert(0, str(ROOT / "src/wheel_leg_mujoco"))
+from himloco_policy.policy_core import HimPolicyCore, DEFAULT_POSITION, projected_gravity
 
 
 def observe(core, **changes):
@@ -91,12 +93,11 @@ def test_targets_respect_go2w_joint_and_wheel_limits():
     np.testing.assert_array_equal(core.last_action, np.full(16, 100))
 
 
-def test_mujoco_model_mapping_and_freefall_imu():
+@pytest.mark.parametrize("scene", ["scene_flat.xml", "scene_fields.xml"])
+def test_mujoco_model_mapping_and_freefall_imu(scene):
     pytest.importorskip("mujoco")
-    from himloco_sim2sim.mujoco_backend import MujocoRobot
-    xml = Path.home() / "dogMujoco2027/unitree_robots/go2_w/urdf/scene_flat.xml"
-    if not xml.is_file():
-        pytest.skip("Local reference Go2W model missing")
+    from wheel_leg_mujoco.mujoco_backend import MujocoRobot
+    xml = MODEL_DIR / scene
     robot = MujocoRobot(str(xml))
     assert len(set(robot.actuator_ids)) == 16
     np.testing.assert_allclose(robot.joint_state()[0], DEFAULT_POSITION)
@@ -108,10 +109,8 @@ def test_mujoco_model_mapping_and_freefall_imu():
 @pytest.mark.parametrize("quaternion", [[1, 0, 0, 0], [0.5, 0.5, 0.5, 0.5]])
 def test_mujoco_gyro_uses_base_axes_instead_of_inertia_axes(quaternion):
     mujoco = pytest.importorskip("mujoco")
-    from himloco_sim2sim.mujoco_backend import MujocoRobot
-    xml = Path.home() / "dogMujoco2027/unitree_robots/go2_w/urdf/scene_flat.xml"
-    if not xml.is_file():
-        pytest.skip("Local reference Go2W model missing")
+    from wheel_leg_mujoco.mujoco_backend import MujocoRobot
+    xml = MODEL_DIR / "scene_flat.xml"
     robot = MujocoRobot(str(xml))
     robot.data.qpos[3:7] = quaternion
     # MuJoCo free joint 的后三个速度就是机体坐标系角速度。
@@ -125,13 +124,17 @@ def test_mujoco_gyro_uses_base_axes_instead_of_inertia_axes(quaternion):
 def test_parkour_profile_and_checkpoint_match_training():
     torch = pytest.importorskip("torch")
     yaml = pytest.importorskip("yaml")
-    package = ROOT / "src/himloco_sim2sim"
-    profile = yaml.safe_load((package / "config/parkour.yaml").read_text())
+    package = ROOT / "src/himloco_policy"
+    profiles = {}
+    for package_name, node in [("robot_ctrl", "robot_ctrl"), ("himloco_policy", "himloco_policy"),
+                               ("wheel_leg_mujoco", "go2w_mujoco")]:
+        profile_path = ROOT / "src" / package_name / "config/parkour.yaml"
+        profiles[node] = yaml.safe_load(profile_path.read_text())[node]
     expected = [0.0, 0.8, -1.5, 0.0] * 4
     for name in ["robot_ctrl", "himloco_policy", "go2w_mujoco"]:
-        assert profile[name]["ros__parameters"]["default_position"] == expected
+        assert profiles[name]["ros__parameters"]["default_position"] == expected
     for name in ["robot_ctrl", "himloco_policy"]:
-        parameters = profile[name]["ros__parameters"]
+        parameters = profiles[name]["ros__parameters"]
         assert [parameters[k] for k in ["leg_kp", "leg_kd", "wheel_kd"]] == [40.0, 1.0, 0.5]
     checkpoint = (Path.home() / "_PaperWorks/HIMLoco/legged_gym/logs/him_go2w_parkour"
                   / "Oct24_15-45-13_/model_13500.pt")
@@ -148,7 +151,7 @@ def test_parkour_profile_and_checkpoint_match_training():
 
 def test_bundled_torchscript_accepts_real_observation():
     torch = pytest.importorskip("torch")
-    model = torch.jit.load(str(ROOT / "src/himloco_sim2sim/policies/policy.pt"), map_location="cpu").eval()
+    model = torch.jit.load(str(ROOT / "src/himloco_policy/policies/policy.pt"), map_location="cpu").eval()
     history = observe(HimPolicyCore()).reshape(1, 342)
     with torch.no_grad():
         result = model(torch.from_numpy(history))

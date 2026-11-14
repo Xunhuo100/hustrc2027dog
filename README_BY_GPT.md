@@ -12,20 +12,25 @@ ROS2 Humble，C++ 控制器，Python TorchScript 推理，默认 MuJoCo 仿真�
 
 - `src/wheel_leg_interfaces`：固定 16 电机的 `RobotState` / `RobotCommand`。
 - `src/robot_ctrl`：200 Hz 底层收发，显式 FSM 管理 Passive / Stand / RL 三个独立状态类。
-- `src/himloco_sim2sim`：50 Hz HIMLoco 推理、模型导出脚本和 MuJoCo ROS2 桥。
+- `src/himloco_policy`：50 Hz HIMLoco 推理、策略配置、权重和模型导出工具。
+- `src/wheel_leg_mujoco`：独立的 MuJoCo ROS2 驱动、IMU/深度渲染和仿真资源，无 Torch 依赖。
+- `launch/`：工作空间级组合启动；`robot_ctrl` 提供通用键盘速度节点。
+- `src/wheel_leg_mujoco/models/go2w`：本地 MJCF、机器人网格、障碍网格和资源来源说明。
 - `src/robot_ctrl/legacy`：原来 12 自由度框架的完整源文件和构建配置，不参与编译。
 
 参考本机 `2026dogs/12fdog/unitree_him_w` 的 RL 状态收发方式；
-模型和观测来自 `_PaperWorks/HIMLoco`，机器人来自
-`dogMujoco2027/unitree_robots/go2_w/urdf`。
+策略模型和观测来自 `_PaperWorks/HIMLoco`；Go2W 机器人和平地、障碍场景已收录于
+`src/wheel_leg_mujoco/models/go2w`，随 `wheel_leg_mujoco` 包安装，运行不依赖外部仿真仓库。
 ROS2 节点采用类似 `Robocon/2026/Volleyball` 的直接回调和普通成员函数写法。
+
+独立启动、配置归属、外部策略和 sim2real 用法见 [包结构与启动说明](docs/package_layout.md)。
 
 ## 构建和启动
 
 ```bash
 cd ~/hustrc2027dog
 source /opt/ros/humble/setup.bash
-colcon build --packages-up-to robot_ctrl himloco_sim2sim --cmake-args -DBUILD_TESTING=OFF
+colcon build --packages-up-to robot_ctrl wheel_leg_mujoco himloco_policy --cmake-args -DBUILD_TESTING=OFF
 source install/setup.bash
 ```
 
@@ -47,12 +52,12 @@ python -m pip install 'numpy<2' mujoco==3.2.7
 source /opt/ros/humble/setup.bash
 source install/setup.bash
 source .venv/bin/activate
-ros2 launch himloco_sim2sim sim2sim.launch.py
+ros2 launch launch/sim2sim.launch.py
 ```
 
 启动文件默认使用本机最新 parkour 导出权重，已核对与 `model_13500.pt` 的 actor 和 estimator
 全部参数一致；`policy_profile:=parkour` 同时选择权重、Stand 站姿、策略 PD 和仿真初始姿态。
-原 flat 配置可用 `policy_profile:=flat` 显式选择。直接运行旧的独立节点入口仍使用原 flat 默认值，
+原 flat 配置可用 `policy_profile:=flat` 显式选择。直接使用 `ros2 run` 运行节点而不加载 profile 时仍使用 flat 默认参数，
 建议通过 launch 统一选择配置。启动后等待模型加载完成，自动执行
 Stand 插值，再进入 RL；初始速度为零。默认无窗口；显示仿真加 `viewer:=true`。
 MuJoCo 在首次收到站立位置指令前保持初始姿态，避免加载模型期间机器人掉落。
@@ -64,7 +69,7 @@ ros2 topic pub -r 20 /cmd_vel geometry_msgs/msg/Twist \
   '{linear: {x: 0.3, y: 0.0}, angular: {z: 0.0}}'
 
 # 指定其他导出模型或场景。
-ros2 launch himloco_sim2sim sim2sim.launch.py \
+ros2 launch launch/sim2sim.launch.py \
   policy_profile:=parkour model_path:=/absolute/path/policy.pt model_xml:=/absolute/path/scene.xml
 ```
 
@@ -80,14 +85,14 @@ ros2 launch himloco_sim2sim sim2sim.launch.py \
 
 ```bash
 # 内置 MuJoCo，启动终端接收按键。
-ros2 launch himloco_sim2sim sim2sim.launch.py enable_keyboard:=true viewer:=true
+ros2 launch launch/sim2sim.launch.py enable_keyboard:=true viewer:=true
 
 # 如需提高前进/侧移按键的速度，在启动时设置，单位 m/s。
-ros2 launch himloco_sim2sim dog_mujoco.launch.py \
+ros2 launch launch/dog_mujoco.launch.py \
   enable_keyboard:=true keyboard_linear_speed:=0.6 viewer:=true
 
 # 单独运行键盘节点，也必须显式启用。
-ros2 run himloco_sim2sim keyboard_control --ros-args -p enable_keyboard:=true
+ros2 run robot_ctrl keyboard_control --ros-args -p enable_keyboard:=true
 
 # 运行中切换；终端与节点需处于同一 ROS_DOMAIN_ID 和 RMW。
 ros2 param set /keyboard_control enable_keyboard true
@@ -102,7 +107,7 @@ ros2 param set /keyboard_control enable_keyboard false
 | 空格 | vx、vy、wz 立即归零 |
 
 输出为 `/cmd_vel` 的 `geometry_msgs/msg/Twist`，默认 20 Hz，并在速度变化时打印 vx、vy、wz。
-参数位于 `src/himloco_sim2sim/config/keyboard.yaml`；速度和周期在启动时配置。
+参数位于 `src/robot_ctrl/config/keyboard.yaml`；速度和周期在启动时配置。
 长按方向键维持运动，可组合平移和转向；终端不提供松键事件，每个方向默认 0.5 秒无重复输入归零。
 使用启动该节点的终端输入，Ctrl+C 退出时恢复终端设置。
 `ros2 launch` 下直接读取 `/dev/tty`；无终端环境保持默认关闭。
@@ -110,18 +115,20 @@ ros2 param set /keyboard_control enable_keyboard false
 
 ## ROS2 仿真与真机切换
 
-`dog_mujoco.launch.py` 使用本包的 ROS2 MuJoCo 节点，直接加载
-`dogMujoco2027/unitree_robots/go2_w/urdf/scene_flat.xml`，默认使用 `/sim` 下的电机和相机话题。
-它复用参考工程的模型和场景；运行入口是 `go2w_mujoco`，不启动参考工程的原生 DDS 可执行程序。
+`launch/dog_mujoco.launch.py` 组合主控、独立策略节点与 MuJoCo 节点，默认加载安装目录中
+`share/wheel_leg_mujoco/models/go2w/urdf/scene_flat.xml`，使用 `/sim` 下的电机和相机话题。
+一键脚本 `start_sim.sh` 默认选择本仓库的 `scene_fields.xml` 障碍场景。
+仿真运行入口是 `wheel_leg_mujoco` 包的 `go2w_mujoco`；所需 XML 和网格已随 `wheel_leg_mujoco` 包安装，无需外部仿真仓库。
+修改资源后重新构建即可更新安装副本，或通过 `model_xml` 指向自己的 XML。
 仿真桥直接从 MuJoCo 读取关节和 IMU 数据，不要求原始 XML 额外添加传感器。
 
 ```bash
 # 仿真：控制器 + HIMLoco + ROS2 MuJoCo 桥，可选键盘。
-ros2 launch himloco_sim2sim dog_mujoco.launch.py enable_keyboard:=true viewer:=true
+ros2 launch launch/dog_mujoco.launch.py enable_keyboard:=true viewer:=true
 
 # 真机或外部 ROS2 仿真：保留同一控制器和策略，只切换 topic 并关闭内置仿真。
 # 以下 /hardware 话题名是示例，替换为实际驱动话题。
-ros2 launch himloco_sim2sim dog_mujoco.launch.py \
+ros2 launch launch/dog_mujoco.launch.py \
   start_simulator:=false autostart:=false \
   motor_command_topic:=/hardware/lowcmd \
   motor_state_topic:=/hardware/lowstate \
@@ -148,11 +155,11 @@ ros2 launch himloco_sim2sim dog_mujoco.launch.py \
 策略继续使用 `/robot/state`，控制状态和模型代码不需要修改。
 如果已有外部 ROS2 仿真节点，也使用 `start_simulator:=false` 并填写它的收发 topic。
 
-参考工程的障碍场景也可以直接通过 `model_xml` 加载，无需修改控制器或话题：
+包内的障碍场景也可以直接通过 `model_xml` 加载，无需修改控制器或话题：
 
 ```bash
-ros2 launch himloco_sim2sim dog_mujoco.launch.py \
-  model_xml:="$HOME/dogMujoco2027/unitree_robots/go2_w/urdf/scene_fields.xml" \
+ros2 launch launch/dog_mujoco.launch.py \
+  model_xml:="$(ros2 pkg prefix wheel_leg_mujoco)/share/wheel_leg_mujoco/models/go2w/urdf/scene_fields.xml" \
   enable_keyboard:=true viewer:=true
 ```
 
@@ -249,7 +256,7 @@ ros2 topic pub --once /robot/mode std_msgs/msg/String '{data: passive}'
 
 ## HIMLoco 模型约定与导出
 
-`himloco_sim2sim/policy_core.py` 对照本机 HIMLoco 的 `him_go2w_env.py` 构建每帧观测：
+`src/himloco_policy/himloco_policy/policy_core.py` 对照本机 HIMLoco 的 `him_go2w_env.py` 构建每帧观测：
 
 | 区间 | 内容 | 缩放 |
 | --- | --- | --- |
@@ -266,7 +273,7 @@ ros2 topic pub --once /robot/mode std_msgs/msg/String '{data: passive}'
 
 ```bash
 # 可以在已有的 HIMLoco Python 3.8 环境或当前 .venv 中执行。
-python src/himloco_sim2sim/scripts/export_policy \
+python src/himloco_policy/scripts/export_policy \
   --himloco-root "$HOME/_PaperWorks/HIMLoco" \
   --checkpoint /absolute/path/model_2000.pt \
   --output /absolute/path/policy.pt
@@ -287,7 +294,7 @@ python tests/check_parkour.py --fields
 ROS_DOMAIN_ID=74 python tests/check_controller.py
 ROS_DOMAIN_ID=73 python tests/check_sim2sim.py
 ROS_DOMAIN_ID=78 python tests/check_sim2sim.py \
-  --model-xml "$HOME/dogMujoco2027/unitree_robots/go2_w/urdf/scene_fields.xml"
+  --model-xml "$(ros2 pkg prefix wheel_leg_mujoco)/share/wheel_leg_mujoco/models/go2w/urdf/scene_fields.xml"
 ROS_DOMAIN_ID=75 python tests/check_keyboard.py
 ```
 

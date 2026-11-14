@@ -76,12 +76,12 @@ def run_case(external, profile="parkour"):
         if external:
             # 用独立 ROS2 MuJoCo 进程模拟已有的硬件驱动，不连接真实电机。
             start("driver", [sys.executable,
-                str(ROOT / "install/himloco_sim2sim/lib/himloco_sim2sim/go2w_mujoco"),
+                str(ROOT / "install/wheel_leg_mujoco/lib/wheel_leg_mujoco/go2w_mujoco"),
                 "--ros-args", "-p", "motor_command_topic:=" + command_topic,
                 "-p", "motor_state_topic:=" + state_topic])
             arguments += ["start_simulator:=false", "motor_command_topic:=" + command_topic,
                           "motor_state_topic:=" + state_topic, "velocity_topic:=" + velocity_topic]
-        launch = start("launch", ["ros2", "launch", "himloco_sim2sim", "dog_mujoco.launch.py"] + arguments,
+        launch = start("launch", ["ros2", "launch", str(ROOT / "launch/dog_mujoco.launch.py")] + arguments,
                        stdin=slave, preexec_fn=controlling_terminal)
         node.until(lambda: node.state is not None and node.state.control_mode == RobotState.RL, 20)
         assert node.command is not None and node.feedback is not None

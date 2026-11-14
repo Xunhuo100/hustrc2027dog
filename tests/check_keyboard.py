@@ -65,7 +65,7 @@ def main():
     original = termios.tcgetattr(slave)
     log = open("/tmp/hustrc2027dog_keyboard.log", "w")
     process = subprocess.Popen(
-        [sys.executable, str(ROOT / "install/himloco_sim2sim/lib/himloco_sim2sim/keyboard_control"),
+        [sys.executable, str(ROOT / "install/robot_ctrl/lib/robot_ctrl/keyboard_control"),
          "--ros-args", "-p", "key_timeout:=0.3"],
         stdin=slave, stdout=log, stderr=subprocess.STDOUT, preexec_fn=controlling_terminal)
     try:

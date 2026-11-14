@@ -10,10 +10,12 @@ import torch
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "src/himloco_sim2sim"
+PACKAGE = ROOT / "src/himloco_policy"
+SIMULATOR = ROOT / "src/wheel_leg_mujoco"
 sys.path.insert(0, str(PACKAGE))
-from himloco_sim2sim.mujoco_backend import MujocoRobot
-from himloco_sim2sim.policy_core import HimPolicyCore
+sys.path.insert(0, str(SIMULATOR))
+from wheel_leg_mujoco.mujoco_backend import MujocoRobot
+from himloco_policy.policy_core import HimPolicyCore
 
 
 def run_case(model, command, fields=False):
@@ -21,7 +23,7 @@ def run_case(model, command, fields=False):
     parameters = profile["himloco_policy"]["ros__parameters"]
     core = HimPolicyCore(parameters)
     scene = "scene_fields.xml" if fields else "scene_flat.xml"
-    xml = Path.home() / "dogMujoco2027/unitree_robots/go2_w/urdf" / scene
+    xml = SIMULATOR / "models/go2w/urdf" / scene
     robot = MujocoRobot(str(xml), default_position=core.default_position, initial_height=0.45)
     q, dq, kp, kd = core.action_to_targets(np.zeros(16))
     output = np.column_stack([np.ones(16), q, dq, kp, kd, np.zeros(16)])

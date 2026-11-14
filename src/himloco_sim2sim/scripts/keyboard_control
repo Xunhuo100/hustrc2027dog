@@ -1,3 +1,0 @@
-#!/usr/bin/env python3
-from himloco_sim2sim.keyboard_node import main
-main()

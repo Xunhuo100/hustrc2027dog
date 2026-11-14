@@ -60,11 +60,11 @@ def main():
 
     try:
         controller = start("controller", [str(ROOT / "install/robot_ctrl/lib/robot_ctrl/robot_ctrl")])
-        simulator_command = [sys.executable, str(ROOT / "src/himloco_sim2sim/scripts/go2w_mujoco")]
+        simulator_command = [sys.executable, str(ROOT / "src/wheel_leg_mujoco/scripts/go2w_mujoco")]
         if args.model_xml:
             simulator_command += ["--ros-args", "-p", "model_xml:=" + str(Path(args.model_xml).expanduser())]
         simulator = start("mujoco", simulator_command)
-        policy = start("policy", [sys.executable, str(ROOT / "src/himloco_sim2sim/scripts/himloco_policy"),
+        policy = start("policy", [sys.executable, str(ROOT / "src/himloco_policy/scripts/himloco_policy"),
                                   "--ros-args", "-p", "autostart:=true"])
         node.until(lambda: node.state is not None and node.state.control_mode == RobotState.RL,
                    20, "Passive -> Stand -> RL, real policy and MuJoCo connected")

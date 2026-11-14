@@ -1,6 +1,9 @@
 # 16 自由度轮腿控制框架：实现、策略接入与参数调整笔记
 
-本文对应 `/home/wangmx/hustrc2027dog` 在 2026-11-12 的代码。以实际实现为准，说明已具备的能力、策略接入边界及调参位置。文中的“盲走”指只依赖本体感知的运动策略。
+
+当前代码已拆分：`wheel_leg_mujoco` 负责仿真，`himloco_policy` 负责策略，`robot_ctrl` 负责 FSM 和硬件接口。根目录 `launch/` 组合启动三个节点；独立启动、配置文件归属和 sim2real 使用方法见 [包结构与启动说明](package_layout.md)。
+
+本文对应 `/home/wangmx/hustrc2027dog` 在 2026-11-14 的代码。以实际实现为准，说明已具备的能力、策略接入边界及调参位置。文中的“盲走”指只依赖本体感知的运动策略。
 
 ## 1. 能接哪些策略
 
@@ -45,14 +48,14 @@ flowchart LR
 | `src/robot_ctrl/src/FSM/State_Stand.cpp` | Stand 起点记录、时间插值和完成条件 |
 | `src/robot_ctrl/src/FSM/State_RL.cpp` | RL 指令检查、缓存、首条指令前保持站姿及退出清理 |
 | `src/robot_ctrl/src/interface/RobotIO.cpp` | LowState 输入、LowCmd 输出、IMU 转换、相机缓存 |
-| `src/himloco_sim2sim/himloco_sim2sim/policy_node.py` | ROS2 状态/速度订阅、推理、指令发布 |
-| `src/himloco_sim2sim/himloco_sim2sim/policy_core.py` | 不依赖 ROS/Torch 的观测拼接与动作解释 |
-| `src/himloco_sim2sim/scripts/export_policy` | HIM actor 与 estimator 的组合导出和数值验证 |
-| `src/himloco_sim2sim/himloco_sim2sim/mujoco_node.py` | 仿真 ROS2 驱动、深度发布、命令断流处理 |
-| `src/himloco_sim2sim/himloco_sim2sim/mujoco_backend.py` | 关节地址映射、PD 力矩、物理步进、IMU |
-| `src/himloco_sim2sim/himloco_sim2sim/keyboard_node.py` | 键盘到机体期望速度 |
-| `src/himloco_sim2sim/launch/sim2sim.launch.py` | 节点组合和参数覆盖顺序 |
-| `src/himloco_sim2sim/config/parkour.yaml` | parkour 三个节点的配套站姿、增益和初始高度 |
+| `src/himloco_policy/himloco_policy/policy_node.py` | ROS2 状态/速度订阅、推理、指令发布 |
+| `src/himloco_policy/himloco_policy/policy_core.py` | 不依赖 ROS/Torch 的观测拼接与动作解释 |
+| `src/himloco_policy/scripts/export_policy` | HIM actor 与 estimator 的组合导出和数值验证 |
+| `src/wheel_leg_mujoco/wheel_leg_mujoco/mujoco_node.py` | 仿真 ROS2 驱动、深度发布、命令断流处理 |
+| `src/wheel_leg_mujoco/wheel_leg_mujoco/mujoco_backend.py` | 关节地址映射、PD 力矩、物理步进、IMU |
+| `src/robot_ctrl/scripts/keyboard_control` | 键盘到机体期望速度 |
+| `launch/sim2sim.launch.py` | 节点组合和参数覆盖顺序 |
+| `src/himloco_policy/config/parkour.yaml` | parkour 策略动作基准与 RL PD |
 
 职责边界：策略负责“怎么看状态、如何推理、动作如何变成目标”；控制器负责“何时允许执行、是否超时、如何退出”；驱动负责“把统一物理量转换到底层协议并执行”。仿真与真机共享前两层。
 
@@ -278,13 +281,13 @@ source install/setup.bash
 source .venv/bin/activate
 
 # 将本地 HIM checkpoint 导出为包含 estimator 的 TorchScript。
-ros2 run himloco_sim2sim export_policy \
+ros2 run himloco_policy export_policy \
   --himloco-root "$HOME/_PaperWorks/HIMLoco" \
   --checkpoint /absolute/path/model_XXXXX.pt \
   --output /absolute/path/my_parkour.pt
 
 # 本例要求新模型参数与现有 parkour profile 一致。
-ros2 launch himloco_sim2sim dog_mujoco.launch.py \
+ros2 launch launch/dog_mujoco.launch.py \
   policy_profile:=parkour \
   model_path:=/absolute/path/my_parkour.pt \
   enable_keyboard:=true viewer:=true
@@ -375,15 +378,15 @@ def update(self):
 
 ### 6.3 如何启动自己的策略而不同时运行 HIM
 
-`start_simulator:=false` 只关闭内置仿真，**不会关闭 HIM 节点**；`autostart:=false` 也只是关闭 HIM 的自动状态切换，不会禁止它在 RL 时发布动作。当前统一 launch 没有 `start_policy` 参数。
+`start_simulator:=false` 只关闭内置仿真，**不会关闭 HIM 节点**；`autostart:=false` 也只是关闭 HIM 的自动状态切换，不会禁止它在 RL 时发布动作。统一 launch 可用 `start_policy:=false` 关闭 HIM 节点。
 
-因此接入自己的策略时，最直接的方法是分开启动控制器、桥和自己的节点。以下三组命令在不同终端执行，每个终端先 source ROS、工作空间和 `.venv`，工作目录为工作空间根目录。
+接入自己的策略时，可用 `ros2 launch launch/dog_mujoco.launch.py start_policy:=false` 启动主控和仿真，再运行自己的策略；也可以分开启动控制器、桥和自己的节点。以下三组命令在不同终端执行，每个终端先 source ROS、工作空间和 `.venv`，工作目录为工作空间根目录。
 
 ```bash
 # 终端 1：只启动控制器，加载 parkour 作为本例站立配置。
 ros2 run robot_ctrl robot_ctrl --ros-args \
   --params-file src/robot_ctrl/config/go2w.yaml \
-  --params-file src/himloco_sim2sim/config/parkour.yaml \
+  --params-file src/robot_ctrl/config/parkour.yaml \
   -p motor_command_topic:=/sim/lowcmd \
   -p motor_state_topic:=/sim/lowstate \
   -p depth_topic:=/sim/camera/depth/image_raw \
@@ -392,8 +395,8 @@ ros2 run robot_ctrl robot_ctrl --ros-args \
 
 ```bash
 # 终端 2：只启动 ROS2 MuJoCo 桥。
-ros2 run himloco_sim2sim go2w_mujoco --ros-args \
-  --params-file src/himloco_sim2sim/config/parkour.yaml \
+ros2 run wheel_leg_mujoco go2w_mujoco --ros-args \
+  --params-file src/wheel_leg_mujoco/config/parkour.yaml \
   -p motor_command_topic:=/sim/lowcmd \
   -p motor_state_topic:=/sim/lowstate \
   -p viewer:=true
@@ -416,11 +419,11 @@ ros2 topic pub --once /robot/mode std_msgs/msg/String '{data: rl}'
 想先验证“分开启动”的流程，可用已安装的 HIM 节点替代终端 3 的占位命令；以下是可用的实际入口：
 
 ```bash
-ros2 run himloco_sim2sim himloco_policy --ros-args \
-  --params-file src/himloco_sim2sim/config/himloco.yaml \
-  --params-file src/himloco_sim2sim/config/parkour.yaml \
+ros2 run himloco_policy himloco_policy --ros-args \
+  --params-file src/himloco_policy/config/himloco.yaml \
+  --params-file src/himloco_policy/config/parkour.yaml \
   -p policy_profile:=parkour \
-  -p model_path:="$PWD/src/himloco_sim2sim/policies/parkour.pt" \
+  -p model_path:="$PWD/src/himloco_policy/policies/parkour.pt" \
   -p autostart:=false
 ```
 
@@ -451,7 +454,9 @@ ros2 run himloco_sim2sim himloco_policy --ros-args \
 
 C++ 中 `RobotIO::getDepthImage()` 和 `getDepthCameraInfo()` 可访问缓存，未收到时为空指针。Python 视觉策略应直接订阅相同相机 topic，不能直接调用另一个进程的 C++ getter。
 
-目前障碍场景 `~/dogMujoco2027/unitree_robots/go2_w/urdf/scene_fields.xml` 只有 `course_overview`、`course_top` 等场地相机，没有 `front_depth`。直接加 `enable_depth:=true` 会因缺少命名相机启动失败。选场地俯视相机虽然可能出图，但不等于训练中的机载视觉输入。
+机器人和平地、障碍场景及关联网格已随 `wheel_leg_mujoco` 包安装；启动文件和仿真节点通过 ROS2 包索引查找资源，无需外部仿真仓库。`start_sim.sh` 默认加载本仓库源码中的障碍场景，`model_xml` 仍可指定其他 XML。
+
+目前障碍场景 `src/wheel_leg_mujoco/models/go2w/urdf/scene_fields.xml` 只有 `course_overview`、`course_top` 等场地相机，没有 `front_depth`。直接加 `enable_depth:=true` 会因缺少命名相机启动失败。选场地俯视相机虽然可能出图，但不等于训练中的机载视觉输入。
 
 ### 7.2 补齐机载相机
 
@@ -467,12 +472,12 @@ C++ 中 `RobotIO::getDepthImage()` 和 `getDepthCameraInfo()` 可访问缓存，
 
 验证时要确认：确实挂在运动的机体上；前方物体出现在图像正确位置；深度尺度正确；机身不会大面积遮挡视野；相机安装旋转与训练一致。不要只用 frame_id 判断相机坐标已经正确。当前未发布 TF，需要由模型约定或额外节点提供一致的外参。
 
-统一 launch 只直接暴露 `enable_depth` 和 topic，不暴露 `depth_camera/depth_width/depth_height`；单独运行桥可设置这些参数，定制 launch 也可显式传入：
+组合 launch 只直接暴露 `enable_depth` 和 topic，不暴露 `depth_camera/depth_width/depth_height`；单独运行桥可设置这些参数，定制 launch 也可显式传入：
 
 ```bash
 # 此 XML 必须已经包含你添加的机载相机；该命令只启动仿真桥。
-ros2 run himloco_sim2sim go2w_mujoco --ros-args \
-  --params-file src/himloco_sim2sim/config/parkour.yaml \
+ros2 run wheel_leg_mujoco go2w_mujoco --ros-args \
+  --params-file src/wheel_leg_mujoco/config/parkour.yaml \
   -p model_xml:=/absolute/path/scene_with_front_camera.xml \
   -p motor_command_topic:=/sim/lowcmd \
   -p motor_state_topic:=/sim/lowstate \
@@ -651,7 +656,7 @@ tau_total = kp * (q_des - q_measured)
 | MJCF 的 `joint damping/frictionloss/armature` | 所有物理步 | 被动阻力与等效惯性，独立于命令 PD |
 | MJCF actuator `ctrlrange` | 仿真 PD 后 | 限制传给执行器的控制值 |
 
-只调 `robot_ctrl.leg_kp`，进入正常 RL 后不会改变策略发来的 kp；只调策略 PD，也不会改变 Stand 的增益。profile 的好处是将这些用途不同的参数放在同一个文件里配套管理。
+只调 `robot_ctrl.leg_kp`，进入正常 RL 后不会改变策略发来的 kp；只调策略 PD，也不会改变 Stand 的增益。同一个 profile 名称会在三个包中分别选择对应的 YAML：主控保存 Stand 配置，策略保存 RL 动作基准与 PD，仿真保存出生姿态。调整时应配套检查这三个文件。
 
 当前参考 `go2w.xml` 的 hip/thigh/wheel 电机 ctrlrange 为 ±23.7，calf 为 ±35.55；本模型执行器使用对应的力矩控制配置。`State_RL` 的 `abs(tau)<=40` 只检查前馈，不能认为总 PD 力矩被统一限制在 40 Nm。
 
@@ -717,7 +722,7 @@ ros2 topic echo /robot/rl_cmd --once
 键盘模式通过 `keyboard_linear_speed` 设置前后/左右期望速度，默认 0.3 m/s。例如：
 
 ```bash
-ros2 launch himloco_sim2sim dog_mujoco.launch.py \
+ros2 launch launch/dog_mujoco.launch.py \
   policy_profile:=parkour enable_keyboard:=true \
   keyboard_linear_speed:=0.6 viewer:=true
 ```
@@ -760,7 +765,7 @@ ros2 param set /keyboard_control enable_keyboard false
 当真机驱动提供同样的 LowCmd/LowState 类型、关节语义和单位时，可以保留策略与控制器，仅关闭内置桥并改底层 topic：
 
 ```bash
-ros2 launch himloco_sim2sim sim2sim.launch.py \
+ros2 launch launch/sim2sim.launch.py \
   start_simulator:=false \
   motor_command_topic:=/hardware/lowcmd \
   motor_state_topic:=/hardware/lowstate \
@@ -774,7 +779,7 @@ ros2 launch himloco_sim2sim sim2sim.launch.py \
 
 实际接线前应逐项完成接口适配：底层电机槽位与正方向、编码器零点、rad/rad/s/Nm 单位、低层 mode/PD/CRC 语义、IMU 安装旋转、反馈频率、独立硬件保护与相机标定。当前没有真实硬件部署验证，topic 切换本身不能证明这些条件成立。
 
-此外，`dog_mujoco.launch.py` 使用参考项目的 XML 和本工作空间的 ROS2 桥，不会启动参考项目的原生 DDS 程序。若改接其原生进程，需要相应 ROS2 驱动/桥并确认协议相容，不能仅指定同一个 topic 名。
+此外，根目录的 `launch/dog_mujoco.launch.py` 使用本仓库保存的 XML、网格和 `wheel_leg_mujoco` ROS2 驱动，运行不依赖外部仿真仓库。若改接原生 DDS 仿真或实机，需要对应的 ROS2 驱动/桥接层，并确认消息和控制语义相容。
 
 ## 12. 推荐阅读与验证路径
 
@@ -793,7 +798,7 @@ ros2 launch himloco_sim2sim sim2sim.launch.py \
 
 ```bash
 source /opt/ros/humble/setup.bash
-colcon build --packages-up-to robot_ctrl himloco_sim2sim \
+colcon build --packages-up-to robot_ctrl wheel_leg_mujoco himloco_policy \
   --cmake-args -DBUILD_TESTING=OFF
 source install/setup.bash
 source .venv/bin/activate
@@ -803,13 +808,13 @@ python tests/check_ros_topics.py
 python tests/check_parkour.py --fields
 ```
 
-已有 parkour 诊断及量化结果见 [parkour_deployment_check.md](parkour_deployment_check.md)，权重来源见 [SOURCE.md](../src/himloco_sim2sim/policies/SOURCE.md)。其中首个 0.3 m 高墙在 vx=1.0 的固定步长测试中通过，vx=0.3 会受阻；不能据此推断整场通关、视觉避障或真机越障能力。
+已有 parkour 诊断及量化结果见 [parkour_deployment_check.md](parkour_deployment_check.md)，权重来源见 [SOURCE.md](../src/himloco_policy/policies/SOURCE.md)。其中首个 0.3 m 高墙在 vx=1.0 的固定步长测试中通过，vx=0.3 会受阻；不能据此推断整场通关、视觉避障或真机越障能力。
 
 ## 13. 显式 FSM 重构与验证记录（2026-11-12）
 
 Passive、Stand、RL 已拆成独立状态类，FSM 统一管理生命周期和会话。ROS2 接口、参数名、站立时长、控制频率、PD 与策略推理流程沿用原有配置。
 
-- `colcon build --packages-up-to robot_ctrl himloco_sim2sim --cmake-args -DBUILD_TESTING=OFF`：4 packages finished。
+- `colcon build --packages-up-to robot_ctrl wheel_leg_mujoco himloco_policy --cmake-args -DBUILD_TESTING=OFF`：4 packages finished。
 - 扩展后的 `tests/check_controller.py` 通过：验证 Passive 阻尼、Stand 插值/提前进入 RL 拒绝、重复 Stand 请求不增加会话、首条策略前站姿保持、RL PD 保留、RL -> Stand -> RL 清空动作、非法指令、会话隔离、策略断流、倾角保护和反馈失效禁用输出。
 - `python -m pytest -q tests/test_policy_core.py`：14 passed。
 - `python tests/check_ros_topics.py`：parkour 默认 /sim、parkour 外部驱动 topic、flat 默认 /sim 三种情况均通过；实际检查了键盘期望速度、策略输出和电机反馈闭环。

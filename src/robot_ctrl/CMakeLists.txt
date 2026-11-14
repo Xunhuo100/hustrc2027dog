@@ -15,5 +15,6 @@ add_executable(robot_ctrl src/main.cpp src/control/RobotController.cpp
 target_include_directories(robot_ctrl PRIVATE include)
 ament_target_dependencies(robot_ctrl rclcpp std_msgs sensor_msgs unitree_go wheel_leg_interfaces)
 install(TARGETS robot_ctrl DESTINATION lib/${PROJECT_NAME})
+install(PROGRAMS scripts/keyboard_control DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY config launch DESTINATION share/${PROJECT_NAME})
 ament_package()

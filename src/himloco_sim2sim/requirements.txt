@@ -1,4 +1,0 @@
-# ROS2 Humble 的 Python 3.10 环境；torch 可使用 CPU wheel。
-numpy>=1.21,<2
-torch==2.5.1
-mujoco==3.2.7

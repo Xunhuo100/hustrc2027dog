@@ -14,7 +14,7 @@ VIEWER="${VIEWER:-true}"                   # 是否打开 MuJoCo 窗口
 FOLLOW_CAMERA="${FOLLOW_CAMERA:-true}"     # 观察视角是否跟随狗子
 CAMERA_DISTANCE="${CAMERA_DISTANCE:-3.0}"  # 初始观察距离，m，可用鼠标继续缩放
 POLICY_PROFILE="${POLICY_PROFILE:-parkour}"
-MODEL_XML="${MODEL_XML:-$HOME/dogMujoco2027/unitree_robots/go2_w/urdf/scene_fields.xml}"
+MODEL_XML="${MODEL_XML:-$ROOT/src/wheel_leg_mujoco/models/go2w/urdf/scene_fields.xml}"
 BUILD="${BUILD:-false}"                    # 修改源码后设为 true，启动前重新编译
 ROS_SETUP="${ROS_SETUP:-/opt/ros/humble/setup.bash}"
 VENV_DIR="${VENV_DIR:-$ROOT/.venv}"
@@ -34,9 +34,10 @@ fi
 
 source "$ROS_SETUP"
 # 首次运行自动编译；已有构建时默认跳过。
-if [ "$BUILD" = true ] || [ ! -f install/himloco_sim2sim/share/himloco_sim2sim/package.bash ] ||
+if [ "$BUILD" = true ] || [ ! -f install/wheel_leg_mujoco/share/wheel_leg_mujoco/package.bash ] ||
+   [ ! -f install/himloco_policy/share/himloco_policy/package.bash ] ||
    [ ! -f install/robot_ctrl/share/robot_ctrl/package.bash ]; then
-    colcon build --packages-up-to robot_ctrl himloco_sim2sim --cmake-args -DBUILD_TESTING=OFF
+    colcon build --packages-up-to robot_ctrl wheel_leg_mujoco himloco_policy --cmake-args -DBUILD_TESTING=OFF
 fi
 source install/setup.bash
 source "$VENV_DIR/bin/activate"
@@ -53,7 +54,7 @@ if not all(math.isfinite(value) for value in values) or values[0] <= 0.0:
     sys.exit("SPEED 必须大于 0，且 SPEED/VX/VY/WZ 都必须是有限数值。")
 PY_CHECK
 
-launch_command=(ros2 launch himloco_sim2sim dog_mujoco.launch.py
+launch_command=(ros2 launch "$ROOT/launch/dog_mujoco.launch.py"
     "policy_profile:=$POLICY_PROFILE" "model_xml:=$MODEL_XML"
     "viewer:=$VIEWER" "follow_camera:=$FOLLOW_CAMERA" "camera_distance:=$CAMERA_DISTANCE"
     "enable_keyboard:=$ENABLE_KEYBOARD"
