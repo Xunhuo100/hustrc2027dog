@@ -35,3 +35,15 @@ ROS2 包索引查找安装资源，不依赖当前工作目录。
 2026-11-14 从本机 `dogMujoco2027/unitree_robots/go2_w` 导入。
 只收录 4 个 MJCF 和它们引用的 305 个网格，不包含 SDK 桥接、仿真可执行程序、CAD 转换脚本或预览图。
 原工程根目录 `LICENSE` 原样保存在本目录；来源名称仅用于记录，不是运行路径。
+
+## robot.svproj 完整地图
+
+新增入口 `urdf/scene_svproj.xml`，包含此前 `robot.svproj` 的完整场地。地图 XML 为 `../terrains/svproj_course.xml`，网格已嵌入 XML。入口由工作空间根目录 `tools/build_workspace_map.py` 从现有机器人模型生成，出生位置为 `(0.5,0.5)`；现有启动默认值保持原配置。
+
+在工作空间根目录启动：
+
+```bash
+MODEL_XML="$PWD/src/wheel_leg_mujoco/models/go2w/urdf/scene_svproj.xml" ./start_sim.sh
+```
+
+场地说明和独立预览方式见 `../terrains/README.md`。

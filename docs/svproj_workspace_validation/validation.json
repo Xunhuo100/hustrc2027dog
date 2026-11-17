@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "mujoco_version": "3.2.7",
+  "portable_map": true,
+  "visual_solids": 28,
+  "convex_collision_parts": 327,
+  "map_bytes": 2823314,
+  "collision_probes": {
+    "frame_opening": {
+      "surface_z": -0.0003671818424604116,
+      "expected_z": 0.0
+    },
+    "wall_top": {
+      "surface_z": 0.2996328282090507,
+      "expected_z": 0.3
+    },
+    "tire_opening": {
+      "surface_z": -0.0003671818424604116,
+      "expected_z": 0.0
+    }
+  },
+  "scenes": {
+    "go2w": {
+      "path": "/home/wangmx/hustrc2027dog/src/wheel_leg_mujoco/models/go2w/urdf/scene_svproj.xml",
+      "passed": true,
+      "actuators": 16,
+      "joints_including_free_base": 17,
+      "ground_planes": 1,
+      "simulated_seconds": 10.000000000000009,
+      "warnings": 0,
+      "initial_map_contacts": 0,
+      "final_base_xyz": [
+        0.4746311460648705,
+        0.5000002183998405,
+        0.3673106158566924
+      ],
+      "control": "standing PD"
+    },
+    "hustdog_v11": {
+      "path": "/home/wangmx/hustrc2027dog/src/wheel_leg_mujoco/models/hustdog_v11/urdf/scene_svproj.xml",
+      "passed": true,
+      "actuators": 16,
+      "joints_including_free_base": 25,
+      "ground_planes": 1,
+      "simulated_seconds": 2.0000000000000013,
+      "warnings": 0,
+      "initial_map_contacts": 0,
+      "final_base_xyz": [
+        0.4999806328347386,
+        0.5000000069143371,
+        0.09261237012049262
+      ],
+      "control": "original position actuator preview"
+    }
+  },
+  "go2w_backend_steps": 500,
+  "hustdog_note": "Model load and original position-control preview verified; Go2W ROS/policy mapping is not applicable.",
+  "installed_package_loads": true
+}

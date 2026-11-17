@@ -1,0 +1,717 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujocoinclude>
+  <asset>
+    <mesh name="svproj_visual_00" file="svproj_course/visual/solid_00.obj" />
+    <mesh name="svproj_collision_00_00" file="svproj_course/collision/solid_00_part_00.obj" />
+    <mesh name="svproj_collision_00_01" file="svproj_course/collision/solid_00_part_01.obj" />
+    <mesh name="svproj_collision_00_02" file="svproj_course/collision/solid_00_part_02.obj" />
+    <mesh name="svproj_collision_00_03" file="svproj_course/collision/solid_00_part_03.obj" />
+    <mesh name="svproj_collision_00_04" file="svproj_course/collision/solid_00_part_04.obj" />
+    <mesh name="svproj_collision_00_05" file="svproj_course/collision/solid_00_part_05.obj" />
+    <mesh name="svproj_collision_00_06" file="svproj_course/collision/solid_00_part_06.obj" />
+    <mesh name="svproj_collision_00_07" file="svproj_course/collision/solid_00_part_07.obj" />
+    <mesh name="svproj_collision_00_08" file="svproj_course/collision/solid_00_part_08.obj" />
+    <mesh name="svproj_collision_00_09" file="svproj_course/collision/solid_00_part_09.obj" />
+    <mesh name="svproj_visual_01" file="svproj_course/visual/solid_01.obj" />
+    <mesh name="svproj_collision_01_00" file="svproj_course/collision/solid_01_part_00.obj" />
+    <mesh name="svproj_visual_02" file="svproj_course/visual/solid_02.obj" />
+    <mesh name="svproj_collision_02_00" file="svproj_course/collision/solid_02_part_00.obj" />
+    <mesh name="svproj_collision_02_01" file="svproj_course/collision/solid_02_part_01.obj" />
+    <mesh name="svproj_collision_02_02" file="svproj_course/collision/solid_02_part_02.obj" />
+    <mesh name="svproj_collision_02_03" file="svproj_course/collision/solid_02_part_03.obj" />
+    <mesh name="svproj_visual_03" file="svproj_course/visual/solid_03.obj" />
+    <mesh name="svproj_collision_03_00" file="svproj_course/collision/solid_03_part_00.obj" />
+    <mesh name="svproj_visual_04" file="svproj_course/visual/solid_04.obj" />
+    <mesh name="svproj_collision_04_00" file="svproj_course/collision/solid_04_part_00.obj" />
+    <mesh name="svproj_collision_04_01" file="svproj_course/collision/solid_04_part_01.obj" />
+    <mesh name="svproj_collision_04_02" file="svproj_course/collision/solid_04_part_02.obj" />
+    <mesh name="svproj_collision_04_03" file="svproj_course/collision/solid_04_part_03.obj" />
+    <mesh name="svproj_collision_04_04" file="svproj_course/collision/solid_04_part_04.obj" />
+    <mesh name="svproj_collision_04_05" file="svproj_course/collision/solid_04_part_05.obj" />
+    <mesh name="svproj_collision_04_06" file="svproj_course/collision/solid_04_part_06.obj" />
+    <mesh name="svproj_collision_04_07" file="svproj_course/collision/solid_04_part_07.obj" />
+    <mesh name="svproj_collision_04_08" file="svproj_course/collision/solid_04_part_08.obj" />
+    <mesh name="svproj_collision_04_09" file="svproj_course/collision/solid_04_part_09.obj" />
+    <mesh name="svproj_collision_04_10" file="svproj_course/collision/solid_04_part_10.obj" />
+    <mesh name="svproj_collision_04_11" file="svproj_course/collision/solid_04_part_11.obj" />
+    <mesh name="svproj_collision_04_12" file="svproj_course/collision/solid_04_part_12.obj" />
+    <mesh name="svproj_collision_04_13" file="svproj_course/collision/solid_04_part_13.obj" />
+    <mesh name="svproj_collision_04_14" file="svproj_course/collision/solid_04_part_14.obj" />
+    <mesh name="svproj_collision_04_15" file="svproj_course/collision/solid_04_part_15.obj" />
+    <mesh name="svproj_collision_04_16" file="svproj_course/collision/solid_04_part_16.obj" />
+    <mesh name="svproj_collision_04_17" file="svproj_course/collision/solid_04_part_17.obj" />
+    <mesh name="svproj_collision_04_18" file="svproj_course/collision/solid_04_part_18.obj" />
+    <mesh name="svproj_collision_04_19" file="svproj_course/collision/solid_04_part_19.obj" />
+    <mesh name="svproj_collision_04_20" file="svproj_course/collision/solid_04_part_20.obj" />
+    <mesh name="svproj_collision_04_21" file="svproj_course/collision/solid_04_part_21.obj" />
+    <mesh name="svproj_collision_04_22" file="svproj_course/collision/solid_04_part_22.obj" />
+    <mesh name="svproj_collision_04_23" file="svproj_course/collision/solid_04_part_23.obj" />
+    <mesh name="svproj_collision_04_24" file="svproj_course/collision/solid_04_part_24.obj" />
+    <mesh name="svproj_collision_04_25" file="svproj_course/collision/solid_04_part_25.obj" />
+    <mesh name="svproj_collision_04_26" file="svproj_course/collision/solid_04_part_26.obj" />
+    <mesh name="svproj_collision_04_27" file="svproj_course/collision/solid_04_part_27.obj" />
+    <mesh name="svproj_collision_04_28" file="svproj_course/collision/solid_04_part_28.obj" />
+    <mesh name="svproj_collision_04_29" file="svproj_course/collision/solid_04_part_29.obj" />
+    <mesh name="svproj_collision_04_30" file="svproj_course/collision/solid_04_part_30.obj" />
+    <mesh name="svproj_collision_04_31" file="svproj_course/collision/solid_04_part_31.obj" />
+    <mesh name="svproj_collision_04_32" file="svproj_course/collision/solid_04_part_32.obj" />
+    <mesh name="svproj_collision_04_33" file="svproj_course/collision/solid_04_part_33.obj" />
+    <mesh name="svproj_collision_04_34" file="svproj_course/collision/solid_04_part_34.obj" />
+    <mesh name="svproj_visual_05" file="svproj_course/visual/solid_05.obj" />
+    <mesh name="svproj_collision_05_00" file="svproj_course/collision/solid_05_part_00.obj" />
+    <mesh name="svproj_collision_05_01" file="svproj_course/collision/solid_05_part_01.obj" />
+    <mesh name="svproj_collision_05_02" file="svproj_course/collision/solid_05_part_02.obj" />
+    <mesh name="svproj_collision_05_03" file="svproj_course/collision/solid_05_part_03.obj" />
+    <mesh name="svproj_collision_05_04" file="svproj_course/collision/solid_05_part_04.obj" />
+    <mesh name="svproj_collision_05_05" file="svproj_course/collision/solid_05_part_05.obj" />
+    <mesh name="svproj_collision_05_06" file="svproj_course/collision/solid_05_part_06.obj" />
+    <mesh name="svproj_collision_05_07" file="svproj_course/collision/solid_05_part_07.obj" />
+    <mesh name="svproj_collision_05_08" file="svproj_course/collision/solid_05_part_08.obj" />
+    <mesh name="svproj_collision_05_09" file="svproj_course/collision/solid_05_part_09.obj" />
+    <mesh name="svproj_collision_05_10" file="svproj_course/collision/solid_05_part_10.obj" />
+    <mesh name="svproj_collision_05_11" file="svproj_course/collision/solid_05_part_11.obj" />
+    <mesh name="svproj_collision_05_12" file="svproj_course/collision/solid_05_part_12.obj" />
+    <mesh name="svproj_collision_05_13" file="svproj_course/collision/solid_05_part_13.obj" />
+    <mesh name="svproj_collision_05_14" file="svproj_course/collision/solid_05_part_14.obj" />
+    <mesh name="svproj_collision_05_15" file="svproj_course/collision/solid_05_part_15.obj" />
+    <mesh name="svproj_collision_05_16" file="svproj_course/collision/solid_05_part_16.obj" />
+    <mesh name="svproj_collision_05_17" file="svproj_course/collision/solid_05_part_17.obj" />
+    <mesh name="svproj_collision_05_18" file="svproj_course/collision/solid_05_part_18.obj" />
+    <mesh name="svproj_collision_05_19" file="svproj_course/collision/solid_05_part_19.obj" />
+    <mesh name="svproj_collision_05_20" file="svproj_course/collision/solid_05_part_20.obj" />
+    <mesh name="svproj_collision_05_21" file="svproj_course/collision/solid_05_part_21.obj" />
+    <mesh name="svproj_collision_05_22" file="svproj_course/collision/solid_05_part_22.obj" />
+    <mesh name="svproj_collision_05_23" file="svproj_course/collision/solid_05_part_23.obj" />
+    <mesh name="svproj_collision_05_24" file="svproj_course/collision/solid_05_part_24.obj" />
+    <mesh name="svproj_collision_05_25" file="svproj_course/collision/solid_05_part_25.obj" />
+    <mesh name="svproj_collision_05_26" file="svproj_course/collision/solid_05_part_26.obj" />
+    <mesh name="svproj_collision_05_27" file="svproj_course/collision/solid_05_part_27.obj" />
+    <mesh name="svproj_collision_05_28" file="svproj_course/collision/solid_05_part_28.obj" />
+    <mesh name="svproj_collision_05_29" file="svproj_course/collision/solid_05_part_29.obj" />
+    <mesh name="svproj_collision_05_30" file="svproj_course/collision/solid_05_part_30.obj" />
+    <mesh name="svproj_collision_05_31" file="svproj_course/collision/solid_05_part_31.obj" />
+    <mesh name="svproj_collision_05_32" file="svproj_course/collision/solid_05_part_32.obj" />
+    <mesh name="svproj_collision_05_33" file="svproj_course/collision/solid_05_part_33.obj" />
+    <mesh name="svproj_collision_05_34" file="svproj_course/collision/solid_05_part_34.obj" />
+    <mesh name="svproj_visual_06" file="svproj_course/visual/solid_06.obj" />
+    <mesh name="svproj_collision_06_00" file="svproj_course/collision/solid_06_part_00.obj" />
+    <mesh name="svproj_collision_06_01" file="svproj_course/collision/solid_06_part_01.obj" />
+    <mesh name="svproj_collision_06_02" file="svproj_course/collision/solid_06_part_02.obj" />
+    <mesh name="svproj_collision_06_03" file="svproj_course/collision/solid_06_part_03.obj" />
+    <mesh name="svproj_collision_06_04" file="svproj_course/collision/solid_06_part_04.obj" />
+    <mesh name="svproj_collision_06_05" file="svproj_course/collision/solid_06_part_05.obj" />
+    <mesh name="svproj_collision_06_06" file="svproj_course/collision/solid_06_part_06.obj" />
+    <mesh name="svproj_collision_06_07" file="svproj_course/collision/solid_06_part_07.obj" />
+    <mesh name="svproj_collision_06_08" file="svproj_course/collision/solid_06_part_08.obj" />
+    <mesh name="svproj_collision_06_09" file="svproj_course/collision/solid_06_part_09.obj" />
+    <mesh name="svproj_collision_06_10" file="svproj_course/collision/solid_06_part_10.obj" />
+    <mesh name="svproj_collision_06_11" file="svproj_course/collision/solid_06_part_11.obj" />
+    <mesh name="svproj_collision_06_12" file="svproj_course/collision/solid_06_part_12.obj" />
+    <mesh name="svproj_collision_06_13" file="svproj_course/collision/solid_06_part_13.obj" />
+    <mesh name="svproj_collision_06_14" file="svproj_course/collision/solid_06_part_14.obj" />
+    <mesh name="svproj_collision_06_15" file="svproj_course/collision/solid_06_part_15.obj" />
+    <mesh name="svproj_collision_06_16" file="svproj_course/collision/solid_06_part_16.obj" />
+    <mesh name="svproj_collision_06_17" file="svproj_course/collision/solid_06_part_17.obj" />
+    <mesh name="svproj_collision_06_18" file="svproj_course/collision/solid_06_part_18.obj" />
+    <mesh name="svproj_collision_06_19" file="svproj_course/collision/solid_06_part_19.obj" />
+    <mesh name="svproj_collision_06_20" file="svproj_course/collision/solid_06_part_20.obj" />
+    <mesh name="svproj_collision_06_21" file="svproj_course/collision/solid_06_part_21.obj" />
+    <mesh name="svproj_collision_06_22" file="svproj_course/collision/solid_06_part_22.obj" />
+    <mesh name="svproj_collision_06_23" file="svproj_course/collision/solid_06_part_23.obj" />
+    <mesh name="svproj_collision_06_24" file="svproj_course/collision/solid_06_part_24.obj" />
+    <mesh name="svproj_collision_06_25" file="svproj_course/collision/solid_06_part_25.obj" />
+    <mesh name="svproj_collision_06_26" file="svproj_course/collision/solid_06_part_26.obj" />
+    <mesh name="svproj_collision_06_27" file="svproj_course/collision/solid_06_part_27.obj" />
+    <mesh name="svproj_collision_06_28" file="svproj_course/collision/solid_06_part_28.obj" />
+    <mesh name="svproj_collision_06_29" file="svproj_course/collision/solid_06_part_29.obj" />
+    <mesh name="svproj_collision_06_30" file="svproj_course/collision/solid_06_part_30.obj" />
+    <mesh name="svproj_collision_06_31" file="svproj_course/collision/solid_06_part_31.obj" />
+    <mesh name="svproj_collision_06_32" file="svproj_course/collision/solid_06_part_32.obj" />
+    <mesh name="svproj_collision_06_33" file="svproj_course/collision/solid_06_part_33.obj" />
+    <mesh name="svproj_collision_06_34" file="svproj_course/collision/solid_06_part_34.obj" />
+    <mesh name="svproj_visual_07" file="svproj_course/visual/solid_07.obj" />
+    <mesh name="svproj_collision_07_00" file="svproj_course/collision/solid_07_part_00.obj" />
+    <mesh name="svproj_collision_07_01" file="svproj_course/collision/solid_07_part_01.obj" />
+    <mesh name="svproj_collision_07_02" file="svproj_course/collision/solid_07_part_02.obj" />
+    <mesh name="svproj_collision_07_03" file="svproj_course/collision/solid_07_part_03.obj" />
+    <mesh name="svproj_collision_07_04" file="svproj_course/collision/solid_07_part_04.obj" />
+    <mesh name="svproj_collision_07_05" file="svproj_course/collision/solid_07_part_05.obj" />
+    <mesh name="svproj_collision_07_06" file="svproj_course/collision/solid_07_part_06.obj" />
+    <mesh name="svproj_collision_07_07" file="svproj_course/collision/solid_07_part_07.obj" />
+    <mesh name="svproj_collision_07_08" file="svproj_course/collision/solid_07_part_08.obj" />
+    <mesh name="svproj_collision_07_09" file="svproj_course/collision/solid_07_part_09.obj" />
+    <mesh name="svproj_collision_07_10" file="svproj_course/collision/solid_07_part_10.obj" />
+    <mesh name="svproj_collision_07_11" file="svproj_course/collision/solid_07_part_11.obj" />
+    <mesh name="svproj_collision_07_12" file="svproj_course/collision/solid_07_part_12.obj" />
+    <mesh name="svproj_collision_07_13" file="svproj_course/collision/solid_07_part_13.obj" />
+    <mesh name="svproj_collision_07_14" file="svproj_course/collision/solid_07_part_14.obj" />
+    <mesh name="svproj_collision_07_15" file="svproj_course/collision/solid_07_part_15.obj" />
+    <mesh name="svproj_collision_07_16" file="svproj_course/collision/solid_07_part_16.obj" />
+    <mesh name="svproj_collision_07_17" file="svproj_course/collision/solid_07_part_17.obj" />
+    <mesh name="svproj_collision_07_18" file="svproj_course/collision/solid_07_part_18.obj" />
+    <mesh name="svproj_collision_07_19" file="svproj_course/collision/solid_07_part_19.obj" />
+    <mesh name="svproj_collision_07_20" file="svproj_course/collision/solid_07_part_20.obj" />
+    <mesh name="svproj_collision_07_21" file="svproj_course/collision/solid_07_part_21.obj" />
+    <mesh name="svproj_collision_07_22" file="svproj_course/collision/solid_07_part_22.obj" />
+    <mesh name="svproj_collision_07_23" file="svproj_course/collision/solid_07_part_23.obj" />
+    <mesh name="svproj_collision_07_24" file="svproj_course/collision/solid_07_part_24.obj" />
+    <mesh name="svproj_collision_07_25" file="svproj_course/collision/solid_07_part_25.obj" />
+    <mesh name="svproj_collision_07_26" file="svproj_course/collision/solid_07_part_26.obj" />
+    <mesh name="svproj_collision_07_27" file="svproj_course/collision/solid_07_part_27.obj" />
+    <mesh name="svproj_collision_07_28" file="svproj_course/collision/solid_07_part_28.obj" />
+    <mesh name="svproj_collision_07_29" file="svproj_course/collision/solid_07_part_29.obj" />
+    <mesh name="svproj_collision_07_30" file="svproj_course/collision/solid_07_part_30.obj" />
+    <mesh name="svproj_collision_07_31" file="svproj_course/collision/solid_07_part_31.obj" />
+    <mesh name="svproj_collision_07_32" file="svproj_course/collision/solid_07_part_32.obj" />
+    <mesh name="svproj_collision_07_33" file="svproj_course/collision/solid_07_part_33.obj" />
+    <mesh name="svproj_collision_07_34" file="svproj_course/collision/solid_07_part_34.obj" />
+    <mesh name="svproj_visual_08" file="svproj_course/visual/solid_08.obj" />
+    <mesh name="svproj_collision_08_00" file="svproj_course/collision/solid_08_part_00.obj" />
+    <mesh name="svproj_collision_08_01" file="svproj_course/collision/solid_08_part_01.obj" />
+    <mesh name="svproj_collision_08_02" file="svproj_course/collision/solid_08_part_02.obj" />
+    <mesh name="svproj_collision_08_03" file="svproj_course/collision/solid_08_part_03.obj" />
+    <mesh name="svproj_collision_08_04" file="svproj_course/collision/solid_08_part_04.obj" />
+    <mesh name="svproj_collision_08_05" file="svproj_course/collision/solid_08_part_05.obj" />
+    <mesh name="svproj_collision_08_06" file="svproj_course/collision/solid_08_part_06.obj" />
+    <mesh name="svproj_collision_08_07" file="svproj_course/collision/solid_08_part_07.obj" />
+    <mesh name="svproj_collision_08_08" file="svproj_course/collision/solid_08_part_08.obj" />
+    <mesh name="svproj_collision_08_09" file="svproj_course/collision/solid_08_part_09.obj" />
+    <mesh name="svproj_collision_08_10" file="svproj_course/collision/solid_08_part_10.obj" />
+    <mesh name="svproj_collision_08_11" file="svproj_course/collision/solid_08_part_11.obj" />
+    <mesh name="svproj_collision_08_12" file="svproj_course/collision/solid_08_part_12.obj" />
+    <mesh name="svproj_collision_08_13" file="svproj_course/collision/solid_08_part_13.obj" />
+    <mesh name="svproj_collision_08_14" file="svproj_course/collision/solid_08_part_14.obj" />
+    <mesh name="svproj_collision_08_15" file="svproj_course/collision/solid_08_part_15.obj" />
+    <mesh name="svproj_collision_08_16" file="svproj_course/collision/solid_08_part_16.obj" />
+    <mesh name="svproj_collision_08_17" file="svproj_course/collision/solid_08_part_17.obj" />
+    <mesh name="svproj_collision_08_18" file="svproj_course/collision/solid_08_part_18.obj" />
+    <mesh name="svproj_collision_08_19" file="svproj_course/collision/solid_08_part_19.obj" />
+    <mesh name="svproj_collision_08_20" file="svproj_course/collision/solid_08_part_20.obj" />
+    <mesh name="svproj_collision_08_21" file="svproj_course/collision/solid_08_part_21.obj" />
+    <mesh name="svproj_collision_08_22" file="svproj_course/collision/solid_08_part_22.obj" />
+    <mesh name="svproj_collision_08_23" file="svproj_course/collision/solid_08_part_23.obj" />
+    <mesh name="svproj_collision_08_24" file="svproj_course/collision/solid_08_part_24.obj" />
+    <mesh name="svproj_collision_08_25" file="svproj_course/collision/solid_08_part_25.obj" />
+    <mesh name="svproj_collision_08_26" file="svproj_course/collision/solid_08_part_26.obj" />
+    <mesh name="svproj_collision_08_27" file="svproj_course/collision/solid_08_part_27.obj" />
+    <mesh name="svproj_collision_08_28" file="svproj_course/collision/solid_08_part_28.obj" />
+    <mesh name="svproj_collision_08_29" file="svproj_course/collision/solid_08_part_29.obj" />
+    <mesh name="svproj_collision_08_30" file="svproj_course/collision/solid_08_part_30.obj" />
+    <mesh name="svproj_collision_08_31" file="svproj_course/collision/solid_08_part_31.obj" />
+    <mesh name="svproj_collision_08_32" file="svproj_course/collision/solid_08_part_32.obj" />
+    <mesh name="svproj_collision_08_33" file="svproj_course/collision/solid_08_part_33.obj" />
+    <mesh name="svproj_collision_08_34" file="svproj_course/collision/solid_08_part_34.obj" />
+    <mesh name="svproj_visual_09" file="svproj_course/visual/solid_09.obj" />
+    <mesh name="svproj_collision_09_00" file="svproj_course/collision/solid_09_part_00.obj" />
+    <mesh name="svproj_collision_09_01" file="svproj_course/collision/solid_09_part_01.obj" />
+    <mesh name="svproj_collision_09_02" file="svproj_course/collision/solid_09_part_02.obj" />
+    <mesh name="svproj_collision_09_03" file="svproj_course/collision/solid_09_part_03.obj" />
+    <mesh name="svproj_collision_09_04" file="svproj_course/collision/solid_09_part_04.obj" />
+    <mesh name="svproj_collision_09_05" file="svproj_course/collision/solid_09_part_05.obj" />
+    <mesh name="svproj_collision_09_06" file="svproj_course/collision/solid_09_part_06.obj" />
+    <mesh name="svproj_collision_09_07" file="svproj_course/collision/solid_09_part_07.obj" />
+    <mesh name="svproj_collision_09_08" file="svproj_course/collision/solid_09_part_08.obj" />
+    <mesh name="svproj_collision_09_09" file="svproj_course/collision/solid_09_part_09.obj" />
+    <mesh name="svproj_collision_09_10" file="svproj_course/collision/solid_09_part_10.obj" />
+    <mesh name="svproj_collision_09_11" file="svproj_course/collision/solid_09_part_11.obj" />
+    <mesh name="svproj_collision_09_12" file="svproj_course/collision/solid_09_part_12.obj" />
+    <mesh name="svproj_collision_09_13" file="svproj_course/collision/solid_09_part_13.obj" />
+    <mesh name="svproj_collision_09_14" file="svproj_course/collision/solid_09_part_14.obj" />
+    <mesh name="svproj_collision_09_15" file="svproj_course/collision/solid_09_part_15.obj" />
+    <mesh name="svproj_collision_09_16" file="svproj_course/collision/solid_09_part_16.obj" />
+    <mesh name="svproj_collision_09_17" file="svproj_course/collision/solid_09_part_17.obj" />
+    <mesh name="svproj_collision_09_18" file="svproj_course/collision/solid_09_part_18.obj" />
+    <mesh name="svproj_collision_09_19" file="svproj_course/collision/solid_09_part_19.obj" />
+    <mesh name="svproj_collision_09_20" file="svproj_course/collision/solid_09_part_20.obj" />
+    <mesh name="svproj_collision_09_21" file="svproj_course/collision/solid_09_part_21.obj" />
+    <mesh name="svproj_collision_09_22" file="svproj_course/collision/solid_09_part_22.obj" />
+    <mesh name="svproj_collision_09_23" file="svproj_course/collision/solid_09_part_23.obj" />
+    <mesh name="svproj_collision_09_24" file="svproj_course/collision/solid_09_part_24.obj" />
+    <mesh name="svproj_collision_09_25" file="svproj_course/collision/solid_09_part_25.obj" />
+    <mesh name="svproj_collision_09_26" file="svproj_course/collision/solid_09_part_26.obj" />
+    <mesh name="svproj_collision_09_27" file="svproj_course/collision/solid_09_part_27.obj" />
+    <mesh name="svproj_collision_09_28" file="svproj_course/collision/solid_09_part_28.obj" />
+    <mesh name="svproj_collision_09_29" file="svproj_course/collision/solid_09_part_29.obj" />
+    <mesh name="svproj_collision_09_30" file="svproj_course/collision/solid_09_part_30.obj" />
+    <mesh name="svproj_collision_09_31" file="svproj_course/collision/solid_09_part_31.obj" />
+    <mesh name="svproj_collision_09_32" file="svproj_course/collision/solid_09_part_32.obj" />
+    <mesh name="svproj_collision_09_33" file="svproj_course/collision/solid_09_part_33.obj" />
+    <mesh name="svproj_collision_09_34" file="svproj_course/collision/solid_09_part_34.obj" />
+    <mesh name="svproj_visual_10" file="svproj_course/visual/solid_10.obj" />
+    <mesh name="svproj_collision_10_00" file="svproj_course/collision/solid_10_part_00.obj" />
+    <mesh name="svproj_collision_10_01" file="svproj_course/collision/solid_10_part_01.obj" />
+    <mesh name="svproj_collision_10_02" file="svproj_course/collision/solid_10_part_02.obj" />
+    <mesh name="svproj_collision_10_03" file="svproj_course/collision/solid_10_part_03.obj" />
+    <mesh name="svproj_collision_10_04" file="svproj_course/collision/solid_10_part_04.obj" />
+    <mesh name="svproj_collision_10_05" file="svproj_course/collision/solid_10_part_05.obj" />
+    <mesh name="svproj_collision_10_06" file="svproj_course/collision/solid_10_part_06.obj" />
+    <mesh name="svproj_collision_10_07" file="svproj_course/collision/solid_10_part_07.obj" />
+    <mesh name="svproj_collision_10_08" file="svproj_course/collision/solid_10_part_08.obj" />
+    <mesh name="svproj_collision_10_09" file="svproj_course/collision/solid_10_part_09.obj" />
+    <mesh name="svproj_collision_10_10" file="svproj_course/collision/solid_10_part_10.obj" />
+    <mesh name="svproj_collision_10_11" file="svproj_course/collision/solid_10_part_11.obj" />
+    <mesh name="svproj_collision_10_12" file="svproj_course/collision/solid_10_part_12.obj" />
+    <mesh name="svproj_collision_10_13" file="svproj_course/collision/solid_10_part_13.obj" />
+    <mesh name="svproj_collision_10_14" file="svproj_course/collision/solid_10_part_14.obj" />
+    <mesh name="svproj_collision_10_15" file="svproj_course/collision/solid_10_part_15.obj" />
+    <mesh name="svproj_collision_10_16" file="svproj_course/collision/solid_10_part_16.obj" />
+    <mesh name="svproj_collision_10_17" file="svproj_course/collision/solid_10_part_17.obj" />
+    <mesh name="svproj_collision_10_18" file="svproj_course/collision/solid_10_part_18.obj" />
+    <mesh name="svproj_collision_10_19" file="svproj_course/collision/solid_10_part_19.obj" />
+    <mesh name="svproj_collision_10_20" file="svproj_course/collision/solid_10_part_20.obj" />
+    <mesh name="svproj_collision_10_21" file="svproj_course/collision/solid_10_part_21.obj" />
+    <mesh name="svproj_collision_10_22" file="svproj_course/collision/solid_10_part_22.obj" />
+    <mesh name="svproj_collision_10_23" file="svproj_course/collision/solid_10_part_23.obj" />
+    <mesh name="svproj_collision_10_24" file="svproj_course/collision/solid_10_part_24.obj" />
+    <mesh name="svproj_collision_10_25" file="svproj_course/collision/solid_10_part_25.obj" />
+    <mesh name="svproj_collision_10_26" file="svproj_course/collision/solid_10_part_26.obj" />
+    <mesh name="svproj_collision_10_27" file="svproj_course/collision/solid_10_part_27.obj" />
+    <mesh name="svproj_collision_10_28" file="svproj_course/collision/solid_10_part_28.obj" />
+    <mesh name="svproj_collision_10_29" file="svproj_course/collision/solid_10_part_29.obj" />
+    <mesh name="svproj_collision_10_30" file="svproj_course/collision/solid_10_part_30.obj" />
+    <mesh name="svproj_collision_10_31" file="svproj_course/collision/solid_10_part_31.obj" />
+    <mesh name="svproj_collision_10_32" file="svproj_course/collision/solid_10_part_32.obj" />
+    <mesh name="svproj_collision_10_33" file="svproj_course/collision/solid_10_part_33.obj" />
+    <mesh name="svproj_collision_10_34" file="svproj_course/collision/solid_10_part_34.obj" />
+    <mesh name="svproj_visual_11" file="svproj_course/visual/solid_11.obj" />
+    <mesh name="svproj_collision_11_00" file="svproj_course/collision/solid_11_part_00.obj" />
+    <mesh name="svproj_collision_11_01" file="svproj_course/collision/solid_11_part_01.obj" />
+    <mesh name="svproj_collision_11_02" file="svproj_course/collision/solid_11_part_02.obj" />
+    <mesh name="svproj_collision_11_03" file="svproj_course/collision/solid_11_part_03.obj" />
+    <mesh name="svproj_collision_11_04" file="svproj_course/collision/solid_11_part_04.obj" />
+    <mesh name="svproj_collision_11_05" file="svproj_course/collision/solid_11_part_05.obj" />
+    <mesh name="svproj_collision_11_06" file="svproj_course/collision/solid_11_part_06.obj" />
+    <mesh name="svproj_collision_11_07" file="svproj_course/collision/solid_11_part_07.obj" />
+    <mesh name="svproj_collision_11_08" file="svproj_course/collision/solid_11_part_08.obj" />
+    <mesh name="svproj_collision_11_09" file="svproj_course/collision/solid_11_part_09.obj" />
+    <mesh name="svproj_collision_11_10" file="svproj_course/collision/solid_11_part_10.obj" />
+    <mesh name="svproj_collision_11_11" file="svproj_course/collision/solid_11_part_11.obj" />
+    <mesh name="svproj_collision_11_12" file="svproj_course/collision/solid_11_part_12.obj" />
+    <mesh name="svproj_collision_11_13" file="svproj_course/collision/solid_11_part_13.obj" />
+    <mesh name="svproj_collision_11_14" file="svproj_course/collision/solid_11_part_14.obj" />
+    <mesh name="svproj_collision_11_15" file="svproj_course/collision/solid_11_part_15.obj" />
+    <mesh name="svproj_collision_11_16" file="svproj_course/collision/solid_11_part_16.obj" />
+    <mesh name="svproj_collision_11_17" file="svproj_course/collision/solid_11_part_17.obj" />
+    <mesh name="svproj_collision_11_18" file="svproj_course/collision/solid_11_part_18.obj" />
+    <mesh name="svproj_collision_11_19" file="svproj_course/collision/solid_11_part_19.obj" />
+    <mesh name="svproj_collision_11_20" file="svproj_course/collision/solid_11_part_20.obj" />
+    <mesh name="svproj_collision_11_21" file="svproj_course/collision/solid_11_part_21.obj" />
+    <mesh name="svproj_collision_11_22" file="svproj_course/collision/solid_11_part_22.obj" />
+    <mesh name="svproj_collision_11_23" file="svproj_course/collision/solid_11_part_23.obj" />
+    <mesh name="svproj_collision_11_24" file="svproj_course/collision/solid_11_part_24.obj" />
+    <mesh name="svproj_collision_11_25" file="svproj_course/collision/solid_11_part_25.obj" />
+    <mesh name="svproj_collision_11_26" file="svproj_course/collision/solid_11_part_26.obj" />
+    <mesh name="svproj_collision_11_27" file="svproj_course/collision/solid_11_part_27.obj" />
+    <mesh name="svproj_collision_11_28" file="svproj_course/collision/solid_11_part_28.obj" />
+    <mesh name="svproj_collision_11_29" file="svproj_course/collision/solid_11_part_29.obj" />
+    <mesh name="svproj_collision_11_30" file="svproj_course/collision/solid_11_part_30.obj" />
+    <mesh name="svproj_collision_11_31" file="svproj_course/collision/solid_11_part_31.obj" />
+    <mesh name="svproj_collision_11_32" file="svproj_course/collision/solid_11_part_32.obj" />
+    <mesh name="svproj_collision_11_33" file="svproj_course/collision/solid_11_part_33.obj" />
+    <mesh name="svproj_collision_11_34" file="svproj_course/collision/solid_11_part_34.obj" />
+    <mesh name="svproj_visual_12" file="svproj_course/visual/solid_12.obj" />
+    <mesh name="svproj_collision_12_00" file="svproj_course/collision/solid_12_part_00.obj" />
+    <mesh name="svproj_visual_13" file="svproj_course/visual/solid_13.obj" />
+    <mesh name="svproj_collision_13_00" file="svproj_course/collision/solid_13_part_00.obj" />
+    <mesh name="svproj_visual_14" file="svproj_course/visual/solid_14.obj" />
+    <mesh name="svproj_collision_14_00" file="svproj_course/collision/solid_14_part_00.obj" />
+    <mesh name="svproj_visual_15" file="svproj_course/visual/solid_15.obj" />
+    <mesh name="svproj_collision_15_00" file="svproj_course/collision/solid_15_part_00.obj" />
+    <mesh name="svproj_visual_16" file="svproj_course/visual/solid_16.obj" />
+    <mesh name="svproj_collision_16_00" file="svproj_course/collision/solid_16_part_00.obj" />
+    <mesh name="svproj_visual_17" file="svproj_course/visual/solid_17.obj" />
+    <mesh name="svproj_collision_17_00" file="svproj_course/collision/solid_17_part_00.obj" />
+    <mesh name="svproj_visual_18" file="svproj_course/visual/solid_18.obj" />
+    <mesh name="svproj_collision_18_00" file="svproj_course/collision/solid_18_part_00.obj" />
+    <mesh name="svproj_visual_19" file="svproj_course/visual/solid_19.obj" />
+    <mesh name="svproj_collision_19_00" file="svproj_course/collision/solid_19_part_00.obj" />
+    <mesh name="svproj_visual_20" file="svproj_course/visual/solid_20.obj" />
+    <mesh name="svproj_collision_20_00" file="svproj_course/collision/solid_20_part_00.obj" />
+    <mesh name="svproj_visual_21" file="svproj_course/visual/solid_21.obj" />
+    <mesh name="svproj_collision_21_00" file="svproj_course/collision/solid_21_part_00.obj" />
+    <mesh name="svproj_visual_22" file="svproj_course/visual/solid_22.obj" />
+    <mesh name="svproj_collision_22_00" file="svproj_course/collision/solid_22_part_00.obj" />
+    <mesh name="svproj_visual_23" file="svproj_course/visual/solid_23.obj" />
+    <mesh name="svproj_collision_23_00" file="svproj_course/collision/solid_23_part_00.obj" />
+    <mesh name="svproj_visual_24" file="svproj_course/visual/solid_24.obj" />
+    <mesh name="svproj_collision_24_00" file="svproj_course/collision/solid_24_part_00.obj" />
+    <mesh name="svproj_visual_25" file="svproj_course/visual/solid_25.obj" />
+    <mesh name="svproj_collision_25_00" file="svproj_course/collision/solid_25_part_00.obj" />
+    <mesh name="svproj_visual_26" file="svproj_course/visual/solid_26.obj" />
+    <mesh name="svproj_collision_26_00" file="svproj_course/collision/solid_26_part_00.obj" />
+    <mesh name="svproj_collision_26_01" file="svproj_course/collision/solid_26_part_01.obj" />
+    <mesh name="svproj_collision_26_02" file="svproj_course/collision/solid_26_part_02.obj" />
+    <mesh name="svproj_collision_26_03" file="svproj_course/collision/solid_26_part_03.obj" />
+    <mesh name="svproj_collision_26_04" file="svproj_course/collision/solid_26_part_04.obj" />
+    <mesh name="svproj_collision_26_05" file="svproj_course/collision/solid_26_part_05.obj" />
+    <mesh name="svproj_collision_26_06" file="svproj_course/collision/solid_26_part_06.obj" />
+    <mesh name="svproj_collision_26_07" file="svproj_course/collision/solid_26_part_07.obj" />
+    <mesh name="svproj_collision_26_08" file="svproj_course/collision/solid_26_part_08.obj" />
+    <mesh name="svproj_collision_26_09" file="svproj_course/collision/solid_26_part_09.obj" />
+    <mesh name="svproj_collision_26_10" file="svproj_course/collision/solid_26_part_10.obj" />
+    <mesh name="svproj_collision_26_11" file="svproj_course/collision/solid_26_part_11.obj" />
+    <mesh name="svproj_collision_26_12" file="svproj_course/collision/solid_26_part_12.obj" />
+    <mesh name="svproj_collision_26_13" file="svproj_course/collision/solid_26_part_13.obj" />
+    <mesh name="svproj_collision_26_14" file="svproj_course/collision/solid_26_part_14.obj" />
+    <mesh name="svproj_collision_26_15" file="svproj_course/collision/solid_26_part_15.obj" />
+    <mesh name="svproj_visual_27" file="svproj_course/visual/solid_27.obj" />
+    <mesh name="svproj_collision_27_00" file="svproj_course/collision/solid_27_part_00.obj" />
+  </asset>
+  <worldbody>
+    <geom name="svproj_visual_00" type="mesh" mesh="svproj_visual_00" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_00_00" type="mesh" mesh="svproj_collision_00_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_01" type="mesh" mesh="svproj_collision_00_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_02" type="mesh" mesh="svproj_collision_00_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_03" type="mesh" mesh="svproj_collision_00_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_04" type="mesh" mesh="svproj_collision_00_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_05" type="mesh" mesh="svproj_collision_00_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_06" type="mesh" mesh="svproj_collision_00_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_07" type="mesh" mesh="svproj_collision_00_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_08" type="mesh" mesh="svproj_collision_00_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_00_09" type="mesh" mesh="svproj_collision_00_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_01" type="mesh" mesh="svproj_visual_01" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_01_00" type="mesh" mesh="svproj_collision_01_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_02" type="mesh" mesh="svproj_visual_02" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_02_00" type="mesh" mesh="svproj_collision_02_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_02_01" type="mesh" mesh="svproj_collision_02_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_02_02" type="mesh" mesh="svproj_collision_02_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_02_03" type="mesh" mesh="svproj_collision_02_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_03" type="mesh" mesh="svproj_visual_03" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_03_00" type="mesh" mesh="svproj_collision_03_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_04" type="mesh" mesh="svproj_visual_04" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_04_00" type="mesh" mesh="svproj_collision_04_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_01" type="mesh" mesh="svproj_collision_04_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_02" type="mesh" mesh="svproj_collision_04_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_03" type="mesh" mesh="svproj_collision_04_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_04" type="mesh" mesh="svproj_collision_04_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_05" type="mesh" mesh="svproj_collision_04_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_06" type="mesh" mesh="svproj_collision_04_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_07" type="mesh" mesh="svproj_collision_04_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_08" type="mesh" mesh="svproj_collision_04_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_09" type="mesh" mesh="svproj_collision_04_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_10" type="mesh" mesh="svproj_collision_04_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_11" type="mesh" mesh="svproj_collision_04_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_12" type="mesh" mesh="svproj_collision_04_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_13" type="mesh" mesh="svproj_collision_04_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_14" type="mesh" mesh="svproj_collision_04_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_15" type="mesh" mesh="svproj_collision_04_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_16" type="mesh" mesh="svproj_collision_04_16" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_17" type="mesh" mesh="svproj_collision_04_17" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_18" type="mesh" mesh="svproj_collision_04_18" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_19" type="mesh" mesh="svproj_collision_04_19" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_20" type="mesh" mesh="svproj_collision_04_20" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_21" type="mesh" mesh="svproj_collision_04_21" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_22" type="mesh" mesh="svproj_collision_04_22" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_23" type="mesh" mesh="svproj_collision_04_23" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_24" type="mesh" mesh="svproj_collision_04_24" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_25" type="mesh" mesh="svproj_collision_04_25" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_26" type="mesh" mesh="svproj_collision_04_26" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_27" type="mesh" mesh="svproj_collision_04_27" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_28" type="mesh" mesh="svproj_collision_04_28" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_29" type="mesh" mesh="svproj_collision_04_29" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_30" type="mesh" mesh="svproj_collision_04_30" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_31" type="mesh" mesh="svproj_collision_04_31" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_32" type="mesh" mesh="svproj_collision_04_32" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_33" type="mesh" mesh="svproj_collision_04_33" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_04_34" type="mesh" mesh="svproj_collision_04_34" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_05" type="mesh" mesh="svproj_visual_05" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_05_00" type="mesh" mesh="svproj_collision_05_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_01" type="mesh" mesh="svproj_collision_05_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_02" type="mesh" mesh="svproj_collision_05_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_03" type="mesh" mesh="svproj_collision_05_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_04" type="mesh" mesh="svproj_collision_05_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_05" type="mesh" mesh="svproj_collision_05_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_06" type="mesh" mesh="svproj_collision_05_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_07" type="mesh" mesh="svproj_collision_05_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_08" type="mesh" mesh="svproj_collision_05_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_09" type="mesh" mesh="svproj_collision_05_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_10" type="mesh" mesh="svproj_collision_05_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_11" type="mesh" mesh="svproj_collision_05_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_12" type="mesh" mesh="svproj_collision_05_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_13" type="mesh" mesh="svproj_collision_05_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_14" type="mesh" mesh="svproj_collision_05_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_15" type="mesh" mesh="svproj_collision_05_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_16" type="mesh" mesh="svproj_collision_05_16" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_17" type="mesh" mesh="svproj_collision_05_17" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_18" type="mesh" mesh="svproj_collision_05_18" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_19" type="mesh" mesh="svproj_collision_05_19" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_20" type="mesh" mesh="svproj_collision_05_20" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_21" type="mesh" mesh="svproj_collision_05_21" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_22" type="mesh" mesh="svproj_collision_05_22" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_23" type="mesh" mesh="svproj_collision_05_23" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_24" type="mesh" mesh="svproj_collision_05_24" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_25" type="mesh" mesh="svproj_collision_05_25" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_26" type="mesh" mesh="svproj_collision_05_26" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_27" type="mesh" mesh="svproj_collision_05_27" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_28" type="mesh" mesh="svproj_collision_05_28" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_29" type="mesh" mesh="svproj_collision_05_29" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_30" type="mesh" mesh="svproj_collision_05_30" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_31" type="mesh" mesh="svproj_collision_05_31" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_32" type="mesh" mesh="svproj_collision_05_32" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_33" type="mesh" mesh="svproj_collision_05_33" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_05_34" type="mesh" mesh="svproj_collision_05_34" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_06" type="mesh" mesh="svproj_visual_06" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_06_00" type="mesh" mesh="svproj_collision_06_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_01" type="mesh" mesh="svproj_collision_06_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_02" type="mesh" mesh="svproj_collision_06_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_03" type="mesh" mesh="svproj_collision_06_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_04" type="mesh" mesh="svproj_collision_06_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_05" type="mesh" mesh="svproj_collision_06_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_06" type="mesh" mesh="svproj_collision_06_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_07" type="mesh" mesh="svproj_collision_06_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_08" type="mesh" mesh="svproj_collision_06_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_09" type="mesh" mesh="svproj_collision_06_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_10" type="mesh" mesh="svproj_collision_06_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_11" type="mesh" mesh="svproj_collision_06_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_12" type="mesh" mesh="svproj_collision_06_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_13" type="mesh" mesh="svproj_collision_06_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_14" type="mesh" mesh="svproj_collision_06_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_15" type="mesh" mesh="svproj_collision_06_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_16" type="mesh" mesh="svproj_collision_06_16" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_17" type="mesh" mesh="svproj_collision_06_17" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_18" type="mesh" mesh="svproj_collision_06_18" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_19" type="mesh" mesh="svproj_collision_06_19" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_20" type="mesh" mesh="svproj_collision_06_20" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_21" type="mesh" mesh="svproj_collision_06_21" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_22" type="mesh" mesh="svproj_collision_06_22" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_23" type="mesh" mesh="svproj_collision_06_23" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_24" type="mesh" mesh="svproj_collision_06_24" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_25" type="mesh" mesh="svproj_collision_06_25" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_26" type="mesh" mesh="svproj_collision_06_26" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_27" type="mesh" mesh="svproj_collision_06_27" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_28" type="mesh" mesh="svproj_collision_06_28" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_29" type="mesh" mesh="svproj_collision_06_29" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_30" type="mesh" mesh="svproj_collision_06_30" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_31" type="mesh" mesh="svproj_collision_06_31" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_32" type="mesh" mesh="svproj_collision_06_32" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_33" type="mesh" mesh="svproj_collision_06_33" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_06_34" type="mesh" mesh="svproj_collision_06_34" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_07" type="mesh" mesh="svproj_visual_07" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_07_00" type="mesh" mesh="svproj_collision_07_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_01" type="mesh" mesh="svproj_collision_07_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_02" type="mesh" mesh="svproj_collision_07_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_03" type="mesh" mesh="svproj_collision_07_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_04" type="mesh" mesh="svproj_collision_07_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_05" type="mesh" mesh="svproj_collision_07_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_06" type="mesh" mesh="svproj_collision_07_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_07" type="mesh" mesh="svproj_collision_07_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_08" type="mesh" mesh="svproj_collision_07_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_09" type="mesh" mesh="svproj_collision_07_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_10" type="mesh" mesh="svproj_collision_07_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_11" type="mesh" mesh="svproj_collision_07_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_12" type="mesh" mesh="svproj_collision_07_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_13" type="mesh" mesh="svproj_collision_07_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_14" type="mesh" mesh="svproj_collision_07_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_15" type="mesh" mesh="svproj_collision_07_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_16" type="mesh" mesh="svproj_collision_07_16" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_17" type="mesh" mesh="svproj_collision_07_17" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_18" type="mesh" mesh="svproj_collision_07_18" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_19" type="mesh" mesh="svproj_collision_07_19" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_20" type="mesh" mesh="svproj_collision_07_20" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_21" type="mesh" mesh="svproj_collision_07_21" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_22" type="mesh" mesh="svproj_collision_07_22" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_23" type="mesh" mesh="svproj_collision_07_23" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_24" type="mesh" mesh="svproj_collision_07_24" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_25" type="mesh" mesh="svproj_collision_07_25" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_26" type="mesh" mesh="svproj_collision_07_26" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_27" type="mesh" mesh="svproj_collision_07_27" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_28" type="mesh" mesh="svproj_collision_07_28" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_29" type="mesh" mesh="svproj_collision_07_29" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_30" type="mesh" mesh="svproj_collision_07_30" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_31" type="mesh" mesh="svproj_collision_07_31" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_32" type="mesh" mesh="svproj_collision_07_32" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_33" type="mesh" mesh="svproj_collision_07_33" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_07_34" type="mesh" mesh="svproj_collision_07_34" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_08" type="mesh" mesh="svproj_visual_08" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_08_00" type="mesh" mesh="svproj_collision_08_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_01" type="mesh" mesh="svproj_collision_08_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_02" type="mesh" mesh="svproj_collision_08_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_03" type="mesh" mesh="svproj_collision_08_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_04" type="mesh" mesh="svproj_collision_08_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_05" type="mesh" mesh="svproj_collision_08_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_06" type="mesh" mesh="svproj_collision_08_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_07" type="mesh" mesh="svproj_collision_08_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_08" type="mesh" mesh="svproj_collision_08_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_09" type="mesh" mesh="svproj_collision_08_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_10" type="mesh" mesh="svproj_collision_08_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_11" type="mesh" mesh="svproj_collision_08_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_12" type="mesh" mesh="svproj_collision_08_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_13" type="mesh" mesh="svproj_collision_08_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_14" type="mesh" mesh="svproj_collision_08_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_15" type="mesh" mesh="svproj_collision_08_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_16" type="mesh" mesh="svproj_collision_08_16" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_17" type="mesh" mesh="svproj_collision_08_17" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_18" type="mesh" mesh="svproj_collision_08_18" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_19" type="mesh" mesh="svproj_collision_08_19" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_20" type="mesh" mesh="svproj_collision_08_20" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_21" type="mesh" mesh="svproj_collision_08_21" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_22" type="mesh" mesh="svproj_collision_08_22" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_23" type="mesh" mesh="svproj_collision_08_23" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_24" type="mesh" mesh="svproj_collision_08_24" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_25" type="mesh" mesh="svproj_collision_08_25" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_26" type="mesh" mesh="svproj_collision_08_26" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_27" type="mesh" mesh="svproj_collision_08_27" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_28" type="mesh" mesh="svproj_collision_08_28" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_29" type="mesh" mesh="svproj_collision_08_29" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_30" type="mesh" mesh="svproj_collision_08_30" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_31" type="mesh" mesh="svproj_collision_08_31" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_32" type="mesh" mesh="svproj_collision_08_32" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_33" type="mesh" mesh="svproj_collision_08_33" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_08_34" type="mesh" mesh="svproj_collision_08_34" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_09" type="mesh" mesh="svproj_visual_09" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_09_00" type="mesh" mesh="svproj_collision_09_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_01" type="mesh" mesh="svproj_collision_09_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_02" type="mesh" mesh="svproj_collision_09_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_03" type="mesh" mesh="svproj_collision_09_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_04" type="mesh" mesh="svproj_collision_09_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_05" type="mesh" mesh="svproj_collision_09_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_06" type="mesh" mesh="svproj_collision_09_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_07" type="mesh" mesh="svproj_collision_09_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_08" type="mesh" mesh="svproj_collision_09_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_09" type="mesh" mesh="svproj_collision_09_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_10" type="mesh" mesh="svproj_collision_09_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_11" type="mesh" mesh="svproj_collision_09_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_12" type="mesh" mesh="svproj_collision_09_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_13" type="mesh" mesh="svproj_collision_09_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_14" type="mesh" mesh="svproj_collision_09_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_15" type="mesh" mesh="svproj_collision_09_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_16" type="mesh" mesh="svproj_collision_09_16" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_17" type="mesh" mesh="svproj_collision_09_17" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_18" type="mesh" mesh="svproj_collision_09_18" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_19" type="mesh" mesh="svproj_collision_09_19" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_20" type="mesh" mesh="svproj_collision_09_20" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_21" type="mesh" mesh="svproj_collision_09_21" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_22" type="mesh" mesh="svproj_collision_09_22" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_23" type="mesh" mesh="svproj_collision_09_23" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_24" type="mesh" mesh="svproj_collision_09_24" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_25" type="mesh" mesh="svproj_collision_09_25" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_26" type="mesh" mesh="svproj_collision_09_26" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_27" type="mesh" mesh="svproj_collision_09_27" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_28" type="mesh" mesh="svproj_collision_09_28" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_29" type="mesh" mesh="svproj_collision_09_29" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_30" type="mesh" mesh="svproj_collision_09_30" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_31" type="mesh" mesh="svproj_collision_09_31" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_32" type="mesh" mesh="svproj_collision_09_32" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_33" type="mesh" mesh="svproj_collision_09_33" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_09_34" type="mesh" mesh="svproj_collision_09_34" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_10" type="mesh" mesh="svproj_visual_10" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_10_00" type="mesh" mesh="svproj_collision_10_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_01" type="mesh" mesh="svproj_collision_10_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_02" type="mesh" mesh="svproj_collision_10_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_03" type="mesh" mesh="svproj_collision_10_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_04" type="mesh" mesh="svproj_collision_10_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_05" type="mesh" mesh="svproj_collision_10_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_06" type="mesh" mesh="svproj_collision_10_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_07" type="mesh" mesh="svproj_collision_10_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_08" type="mesh" mesh="svproj_collision_10_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_09" type="mesh" mesh="svproj_collision_10_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_10" type="mesh" mesh="svproj_collision_10_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_11" type="mesh" mesh="svproj_collision_10_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_12" type="mesh" mesh="svproj_collision_10_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_13" type="mesh" mesh="svproj_collision_10_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_14" type="mesh" mesh="svproj_collision_10_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_15" type="mesh" mesh="svproj_collision_10_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_16" type="mesh" mesh="svproj_collision_10_16" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_17" type="mesh" mesh="svproj_collision_10_17" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_18" type="mesh" mesh="svproj_collision_10_18" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_19" type="mesh" mesh="svproj_collision_10_19" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_20" type="mesh" mesh="svproj_collision_10_20" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_21" type="mesh" mesh="svproj_collision_10_21" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_22" type="mesh" mesh="svproj_collision_10_22" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_23" type="mesh" mesh="svproj_collision_10_23" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_24" type="mesh" mesh="svproj_collision_10_24" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_25" type="mesh" mesh="svproj_collision_10_25" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_26" type="mesh" mesh="svproj_collision_10_26" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_27" type="mesh" mesh="svproj_collision_10_27" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_28" type="mesh" mesh="svproj_collision_10_28" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_29" type="mesh" mesh="svproj_collision_10_29" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_30" type="mesh" mesh="svproj_collision_10_30" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_31" type="mesh" mesh="svproj_collision_10_31" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_32" type="mesh" mesh="svproj_collision_10_32" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_33" type="mesh" mesh="svproj_collision_10_33" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_10_34" type="mesh" mesh="svproj_collision_10_34" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_11" type="mesh" mesh="svproj_visual_11" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_11_00" type="mesh" mesh="svproj_collision_11_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_01" type="mesh" mesh="svproj_collision_11_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_02" type="mesh" mesh="svproj_collision_11_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_03" type="mesh" mesh="svproj_collision_11_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_04" type="mesh" mesh="svproj_collision_11_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_05" type="mesh" mesh="svproj_collision_11_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_06" type="mesh" mesh="svproj_collision_11_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_07" type="mesh" mesh="svproj_collision_11_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_08" type="mesh" mesh="svproj_collision_11_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_09" type="mesh" mesh="svproj_collision_11_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_10" type="mesh" mesh="svproj_collision_11_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_11" type="mesh" mesh="svproj_collision_11_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_12" type="mesh" mesh="svproj_collision_11_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_13" type="mesh" mesh="svproj_collision_11_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_14" type="mesh" mesh="svproj_collision_11_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_15" type="mesh" mesh="svproj_collision_11_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_16" type="mesh" mesh="svproj_collision_11_16" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_17" type="mesh" mesh="svproj_collision_11_17" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_18" type="mesh" mesh="svproj_collision_11_18" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_19" type="mesh" mesh="svproj_collision_11_19" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_20" type="mesh" mesh="svproj_collision_11_20" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_21" type="mesh" mesh="svproj_collision_11_21" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_22" type="mesh" mesh="svproj_collision_11_22" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_23" type="mesh" mesh="svproj_collision_11_23" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_24" type="mesh" mesh="svproj_collision_11_24" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_25" type="mesh" mesh="svproj_collision_11_25" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_26" type="mesh" mesh="svproj_collision_11_26" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_27" type="mesh" mesh="svproj_collision_11_27" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_28" type="mesh" mesh="svproj_collision_11_28" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_29" type="mesh" mesh="svproj_collision_11_29" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_30" type="mesh" mesh="svproj_collision_11_30" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_31" type="mesh" mesh="svproj_collision_11_31" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_32" type="mesh" mesh="svproj_collision_11_32" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_33" type="mesh" mesh="svproj_collision_11_33" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_11_34" type="mesh" mesh="svproj_collision_11_34" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_12" type="mesh" mesh="svproj_visual_12" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_12_00" type="mesh" mesh="svproj_collision_12_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_13" type="mesh" mesh="svproj_visual_13" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_13_00" type="mesh" mesh="svproj_collision_13_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_14" type="mesh" mesh="svproj_visual_14" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_14_00" type="mesh" mesh="svproj_collision_14_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_15" type="mesh" mesh="svproj_visual_15" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_15_00" type="mesh" mesh="svproj_collision_15_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_16" type="mesh" mesh="svproj_visual_16" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_16_00" type="mesh" mesh="svproj_collision_16_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_17" type="mesh" mesh="svproj_visual_17" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_17_00" type="mesh" mesh="svproj_collision_17_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_18" type="mesh" mesh="svproj_visual_18" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_18_00" type="mesh" mesh="svproj_collision_18_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_19" type="mesh" mesh="svproj_visual_19" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_19_00" type="mesh" mesh="svproj_collision_19_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_20" type="mesh" mesh="svproj_visual_20" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_20_00" type="mesh" mesh="svproj_collision_20_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_21" type="mesh" mesh="svproj_visual_21" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_21_00" type="mesh" mesh="svproj_collision_21_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_22" type="mesh" mesh="svproj_visual_22" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_22_00" type="mesh" mesh="svproj_collision_22_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_23" type="mesh" mesh="svproj_visual_23" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_23_00" type="mesh" mesh="svproj_collision_23_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_24" type="mesh" mesh="svproj_visual_24" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_24_00" type="mesh" mesh="svproj_collision_24_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_25" type="mesh" mesh="svproj_visual_25" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_25_00" type="mesh" mesh="svproj_collision_25_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_26" type="mesh" mesh="svproj_visual_26" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_26_00" type="mesh" mesh="svproj_collision_26_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_01" type="mesh" mesh="svproj_collision_26_01" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_02" type="mesh" mesh="svproj_collision_26_02" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_03" type="mesh" mesh="svproj_collision_26_03" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_04" type="mesh" mesh="svproj_collision_26_04" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_05" type="mesh" mesh="svproj_collision_26_05" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_06" type="mesh" mesh="svproj_collision_26_06" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_07" type="mesh" mesh="svproj_collision_26_07" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_08" type="mesh" mesh="svproj_collision_26_08" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_09" type="mesh" mesh="svproj_collision_26_09" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_10" type="mesh" mesh="svproj_collision_26_10" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_11" type="mesh" mesh="svproj_collision_26_11" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_12" type="mesh" mesh="svproj_collision_26_12" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_13" type="mesh" mesh="svproj_collision_26_13" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_14" type="mesh" mesh="svproj_collision_26_14" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_collision_26_15" type="mesh" mesh="svproj_collision_26_15" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+    <geom name="svproj_visual_27" type="mesh" mesh="svproj_visual_27" contype="0" conaffinity="0" group="2" rgba="0.42 0.55 0.65 1" />
+    <geom name="svproj_collision_27_00" type="mesh" mesh="svproj_collision_27_00" group="3" rgba="0 0 0 0" friction="0.8 0.02 0.001" condim="3" />
+  </worldbody>
+</mujocoinclude>

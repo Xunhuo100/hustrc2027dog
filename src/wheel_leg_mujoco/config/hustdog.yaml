@@ -1,0 +1,20 @@
+# 顺序：FL / FR / RL / RR，每条腿 hip / thigh / calf / foot，单位 rad。
+# HUSTDOG 左腿 thigh <= 0、calf >= 0；右腿符号相反。
+# 只配置模型初始姿态和控制器 Stand，不改变所选策略的观测与动作定义。
+go2w_mujoco:
+  ros__parameters:
+    # 仿真从趴下姿态开始，Stand 再从当前角度插值到下方的站立目标。
+    default_position: [0.0, -0.4, 1.5, 0.0, 0.0, 0.4, -1.5, 0.0,
+                       0.0, -0.4, 1.5, 0.0, 0.0, 0.4, -1.5, 0.0]
+    # 基座底面离地约 7.25 mm，避免初始穿地。
+    initial_height: 0.10
+    # 200 Hz 控制周期内推进 5 个 1 ms 物理步，避免细小连杆的约束抖动。
+    physics_substeps: 5
+robot_ctrl:
+  ros__parameters:
+    # 独立的站立目标；髋关节补偿 CAD 装配倾角 38 度。
+    default_position: [0.663225, -1.55, 1.2, 0.0, -0.663225, 1.55, -1.2, 0.0,
+                       0.663225, -1.55, 1.2, 0.0, -0.663225, 1.55, -1.2, 0.0]
+    leg_kp: 40.0
+    leg_kd: 1.0
+    wheel_kd: 0.5

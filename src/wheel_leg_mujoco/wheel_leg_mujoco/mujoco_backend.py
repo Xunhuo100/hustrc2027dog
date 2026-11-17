@@ -7,16 +7,20 @@ from .robot_config import JOINT_NAMES, DEFAULT_POSITION, finite_vector
 
 class MujocoRobot:
     # 仿真后端不依赖策略：任何满足 16 路 mode/q/dq/kp/kd/tau 约定的指令都能执行。
-    # 当前机器人结构仍固定为 Go2W，并要求名为 base 的机体和相同的 16 个关节名。
-    def __init__(self, model_path, timestep=0.005, default_position=None, initial_height=None):
+    # 要求名为 base 的机体和约定的 16 个主动关节，允许额外的被动连杆关节。
+    def __init__(self, model_path, timestep=0.005, default_position=None, initial_height=None,
+                 physics_substeps=1):
         if not os.path.isfile(model_path):
             raise FileNotFoundError("MuJoCo XML missing: " + model_path)
         if not np.isfinite(timestep) or timestep <= 0:
             raise ValueError("simulation_period must be positive")
+        if isinstance(physics_substeps, bool) or not isinstance(physics_substeps, int) or physics_substeps < 1:
+            raise ValueError("physics_substeps must be a positive integer")
+        self.physics_substeps = physics_substeps
         self.model = mujoco.MjModel.from_xml_path(model_path)
-        self.model.opt.timestep = timestep
+        self.model.opt.timestep = timestep / physics_substeps
         if self.model.nu != 16:
-            raise ValueError("Expected a 16 actuator Go2W model")
+            raise ValueError("Expected a model with 16 torque actuators")
         self.data = mujoco.MjData(self.model)
         self.joint_ids, self.actuator_ids = [], []
         # 通过名称寻找 qpos/qvel/actuator 地址，不假设 MJCF 的数组排列等于策略顺序。
@@ -38,13 +42,46 @@ class MujocoRobot:
             mujoco.mj_resetDataKeyframe(self.model, self.data, 0)
         position = DEFAULT_POSITION if default_position is None else default_position
         self.data.qpos[self.qpos_ids] = finite_vector(position, 16)
+        self._initialize_passive_joints()
         if initial_height is not None:
             if not np.isfinite(initial_height) or initial_height <= 0:
                 raise ValueError("initial_height must be positive")
             self.data.qpos[2] = initial_height
         mujoco.mj_forward(self.model, self.data)
 
+    def _initialize_passive_joints(self):
+        # mj_forward 计算约束误差，但不会把 qpos 投影回约束面；启动前主动同步被动关节。
+        # MuJoCo 的 joint equality 对应 q1-ref1 = poly(q2-ref2)。
+        pending = {}
+        for equality in range(self.model.neq):
+            if (self.data.eq_active[equality]
+                    and self.model.eq_type[equality] == mujoco.mjtEq.mjEQ_JOINT):
+                joint = int(self.model.eq_obj1id[equality])
+                if joint not in self.joint_ids:
+                    pending[joint] = equality
+        while pending:
+            for joint, equality in list(pending.items()):
+                driver = int(self.model.eq_obj2id[equality])
+                if driver in pending:
+                    continue
+                displacement = 0.0
+                if driver >= 0:
+                    address = self.model.jnt_qposadr[driver]
+                    displacement = self.data.qpos[address] - self.model.qpos0[address]
+                address = self.model.jnt_qposadr[joint]
+                self.data.qpos[address] = self.model.qpos0[address] + np.polynomial.polynomial.polyval(
+                    displacement, self.model.eq_data[equality, :5])
+                del pending[joint]
+            if pending and all(int(self.model.eq_obj2id[equality]) in pending
+                               for equality in pending.values()):
+                raise ValueError("Cannot initialize cyclic passive joint equalities")
+
     def step(self, command):
+        # 控制/ROS 周期保持不变，细小被动连杆可使用更短的物理步长。
+        for _ in range(self.physics_substeps):
+            self._physics_step(command)
+
+    def _physics_step(self, command):
         # command 列: mode, q, dq, kp, kd, tau。无命令时只保留阻尼。
         position, velocity = self.joint_state()[:2]
         if command is None:

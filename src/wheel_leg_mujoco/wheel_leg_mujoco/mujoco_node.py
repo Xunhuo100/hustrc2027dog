@@ -23,7 +23,8 @@ class Go2WMujoco(Node):
         period = self.declare_parameter("simulation_period", 0.005).value
         position = self.declare_parameter("default_position", DEFAULT_POSITION).value
         height = self.declare_parameter("initial_height", 0.42).value
-        self.robot = MujocoRobot(path, period, position, height)
+        substeps = self.declare_parameter("physics_substeps", 1).value
+        self.robot = MujocoRobot(path, period, position, height, substeps)
         self.command_timeout = self.declare_parameter("command_timeout", 0.1).value
         self.waiting = self.declare_parameter("wait_for_controller", True).value
         self.command, self.command_time = None, 0.0

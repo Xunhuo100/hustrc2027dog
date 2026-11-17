@@ -15,12 +15,13 @@ def generate_launch_description():
     policy = get_package_share_directory("himloco_policy")
     controller = get_package_share_directory("robot_ctrl")
     profile = LaunchConfiguration("policy_profile")
-    controller_profile = ParameterFile(PathJoinSubstitution([controller, "config", [profile, ".yaml"]]),
-                                       allow_substs=False)
+    controller_profile = ParameterFile(LaunchConfiguration("controller_config"), allow_substs=False)
     io_names = ["motor_command_topic", "motor_state_topic", "depth_topic", "camera_info_topic"]
     io_parameters = {name: LaunchConfiguration(name) for name in io_names}
     defaults = {
         "policy_profile": "parkour",
+        "controller_config": PathJoinSubstitution([controller, "config", [profile, ".yaml"]]),
+        "simulator_config": PathJoinSubstitution([simulator, "config", [profile, ".yaml"]]),
         "model_path": PathJoinSubstitution([policy, "policies", [profile, ".pt"]]),
         "model_xml": os.path.join(simulator, "models", "go2w", "urdf", "scene_flat.xml"),
         "start_simulator": "true",
@@ -47,8 +48,8 @@ def generate_launch_description():
                                       controller_profile, io_parameters]))
     sim_arguments = {name: LaunchConfiguration(name) for name in io_names + [
         "model_xml", "viewer", "follow_camera", "camera_distance", "enable_depth"]}
-    # 同一 profile 同步选择仿真初始姿态、控制器站姿与策略动作基准。
-    sim_arguments["config_file"] = PathJoinSubstitution([simulator, "config", [profile, ".yaml"]])
+    # 默认由 profile 选择姿态；不同机械结构可以覆盖仿真和控制器配置。
+    sim_arguments["config_file"] = LaunchConfiguration("simulator_config")
     arguments.append(IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(simulator, "launch", "mujoco.launch.py")),
         condition=IfCondition(LaunchConfiguration("start_simulator")),
